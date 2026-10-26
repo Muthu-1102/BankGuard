@@ -4,7 +4,7 @@
 
 Update this file after every work session. Check a task only after its verification step passes. If a task is blocked, write the blocker and the next action. Do not mark tasks complete based on intention alone.
 
-**Current status:** Phase 2 complete  
+**Current status:** Phase 3 in progress (Task 3.1 completed)  
 **Dataset decision:** IEEE-CIS Fraud Detection Kaggle competition dataset  
 **Data policy:** Public competition data; no synthetic replacement  
 **Last updated:** In progress
@@ -23,7 +23,7 @@ Update this file after every work session. Check a task only after its verificat
 | 0. Repository and environment | DONE | Folder tree, working environment, `.gitignore` checked | Phase 0 complete (Tasks 0.1, 0.2, 0.3) |
 | 1. Dataset download and documentation | DONE | Expected files present; schema inventory; data card and dictionary updated from actual headers | Phase 1 complete (Tasks 1.1, 1.2, 1.3) |
 | 2. Loading, validation, and join | DONE | Quality report; join checks; tests pass | Phase 2 complete (Tasks 2.1, 2.2, 2.3) |
-| 3. Exploratory data analysis | NOT STARTED | EDA report, labeled plots, written findings | |
+| 3. Exploratory data analysis | IN PROGRESS | EDA report, labeled plots, written findings | Task 3.1 complete |
 | 4. Leakage-safe features | NOT STARTED | Feature pipeline and target-leakage test | |
 | 5. Baseline and improved model | NOT STARTED | Saved predictions, metrics, model settings | |
 | 6. Evaluation and threshold choice | NOT STARTED | Metrics recomputed from validation predictions; threshold rationale documented | |
@@ -37,6 +37,15 @@ Update this file after every work session. Check a task only after its verificat
 
 Add a new entry at the top after each work session.
 
+### Task 3.1: Understand the Target
+- **Tasks worked on:** Task 3.1 (Understand the target)
+- **What I changed:** Switched to new branch `feature/phase-3-eda`; created `src/bankguard/data/target_analysis.py` to calculate exact fraud and non-fraud counts, percentages, imbalance ratio, and assert invariant summation (`0 + 1 == total`); generated publication-quality dual-panel visualization `report/figures/target_distribution.png`; added unit tests in `tests/test_target_analysis.py`; generated `report/target_analysis.md` and `report/target_analysis.json`.
+- **Commands run:** `git checkout -b feature/phase-3-eda`, `python src/bankguard/data/target_analysis.py`, `pytest`
+- **Outcome:** Verified 569,877 legitimate transactions (96.5010%) and 20,663 fraud transactions (3.4990%) adding up to exactly 590,540 rows (27.58 : 1 imbalance ratio); documented metric and stratified split requirements. All 33 unit tests passed.
+- **Evidence/artifact paths:** `d:/Projects/BankGurd/report/figures/target_distribution.png`, `d:/Projects/BankGurd/report/target_analysis.md`, `d:/Projects/BankGurd/report/target_analysis.json`
+- **Problems found:** None.
+- **Next exact action:** Awaiting user approval to proceed to Task 3.2 (Investigate missingness and fields).
+
 ### Task 2.3: Join Identity Fields
 - **Tasks worked on:** Task 2.3 (Join identity fields)
 - **What I changed:** Developed `src/bankguard/data/join.py` implementing `safe_join_transaction_identity` with pre-join cardinality checks, post-join assertions, and metric tracking; added unit tests in `tests/test_join.py`; executed join on full training data (590,540 tx, 144,233 id) in 0.99s.
@@ -44,7 +53,7 @@ Add a new entry at the top after each work session.
 - **Outcome:** Primary key uniqueness guaranteed; joined row count exactly preserved (590,540 rows x 434 columns); identity match rate measured at 24.42%; generated `report/join_report.md` and `report/join_report.json`. All 30 unit tests passed.
 - **Evidence/artifact paths:** `d:/Projects/BankGurd/report/join_report.md`, `d:/Projects/BankGurd/report/join_report.json`, `d:/Projects/BankGurd/src/bankguard/data/join.py`
 - **Problems found:** None.
-- **Next exact action:** Awaiting user approval to proceed to Phase 3 (Task 3.1: Understand the target).
+- **Next exact action:** Completed.
 
 ### Task 2.2: Implement Quality Checks
 - **Tasks worked on:** Task 2.2 (Implement quality checks)

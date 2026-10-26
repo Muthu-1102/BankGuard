@@ -1,0 +1,9 @@
+{
+  "total_rows": 590540,
+  "fraud_count": 20663,
+  "legit_count": 569877,
+  "fraud_percentage": 3.499,
+  "legit_percentage": 96.501,
+  "imbalance_ratio": 27.58,
+  "counts_match_total": true
+}
