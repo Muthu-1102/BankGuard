@@ -12,6 +12,13 @@ from bankguard.features.feature_definition import (
     load_feature_config,
     split_features_and_target,
 )
+from bankguard.features.leakage_audit import (
+    EXCLUDED_FEATURES_REGISTRY,
+    audit_dataset_leakage,
+    audit_feature_matrix_leakage,
+    generate_leakage_audit_report,
+    run_leakage_audit_pipeline,
+)
 from bankguard.features.preprocessor import (
     BankGuardFeatureEngineer,
     BankGuardPreprocessor,
@@ -36,4 +43,9 @@ __all__ = [
     "BankGuardPreprocessor",
     "create_preprocessing_pipeline",
     "run_preprocessing_pipeline_report",
+    "EXCLUDED_FEATURES_REGISTRY",
+    "audit_dataset_leakage",
+    "audit_feature_matrix_leakage",
+    "generate_leakage_audit_report",
+    "run_leakage_audit_pipeline",
 ]

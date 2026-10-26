@@ -4,7 +4,7 @@
 
 Update this file after every work session. Check a task only after its verification step passes. If a task is blocked, write the blocker and the next action. Do not mark tasks complete based on intention alone.
 
-**Current status:** Phase 4 in progress (Task 4.2 completed)  
+**Current status:** Phase 4 complete (Awaiting approval for Phase 5)  
 **Dataset decision:** IEEE-CIS Fraud Detection Kaggle competition dataset  
 **Data policy:** Public competition data; no synthetic replacement  
 **Last updated:** In progress
@@ -24,7 +24,7 @@ Update this file after every work session. Check a task only after its verificat
 | 1. Dataset download and documentation | DONE | Expected files present; schema inventory; data card and dictionary updated from actual headers | Phase 1 complete (Tasks 1.1, 1.2, 1.3) |
 | 2. Loading, validation, and join | DONE | Quality report; join checks; tests pass | Phase 2 complete (Tasks 2.1, 2.2, 2.3) |
 | 3. Exploratory data analysis | DONE | EDA report, labeled plots, written findings | Phase 3 complete (Tasks 3.1, 3.2, 3.3) |
-| 4. Leakage-safe features | IN PROGRESS | Feature pipeline and target-leakage test | Task 4.1 and Task 4.2 complete |
+| 4. Leakage-safe features | DONE | Feature pipeline and target-leakage test | Phase 4 complete (Tasks 4.1, 4.2, 4.3) |
 | 5. Baseline and improved model | NOT STARTED | Saved predictions, metrics, model settings | |
 | 6. Evaluation and threshold choice | NOT STARTED | Metrics recomputed from validation predictions; threshold rationale documented | |
 | 7. Explainability | NOT STARTED | Explanation examples and limitations documented | |
@@ -36,6 +36,15 @@ Update this file after every work session. Check a task only after its verificat
 ## Work log
 
 Add a new entry at the top after each work session.
+
+### Task 4.3: Review Leakage Risks and Establish Policy
+- **Tasks worked on:** Task 4.3 (Review leakage risks)
+- **What I changed:** Authored official written leakage policy in `docs/leakage_policy.md`; implemented `src/bankguard/features/leakage_audit.py` establishing `EXCLUDED_FEATURES_REGISTRY` with documented risk classifications, scoring-moment availability constraints, and mandated treatments for `isFraud`, `TransactionID`, and raw `TransactionDT`; implemented `audit_dataset_leakage()` verifying 0 key overlaps and strict chronological boundary ($\max(TransactionDT_{\text{train}}) = 12,192,842 \le \min(TransactionDT_{\text{val}}) = 12,192,900$); implemented `audit_feature_matrix_leakage()` verifying preprocessor output features strictly eliminate target, ID, and raw linear timestamp; generated `report/leakage_review_report.md` and `report/leakage_review_report.json`; added comprehensive unit tests in `tests/test_leakage_audit.py`.
+- **Commands run:** `d:\Projects\BankGurd\.venv\Scripts\python.exe src/bankguard/features/leakage_audit.py`, `d:\Projects\BankGurd\.venv\Scripts\python.exe -m pytest`
+- **Outcome:** All 62 unit tests passed in 5.16s. Confirmed zero leakage violations across all gates; formalized policy prohibiting random K-Fold in favor of chronological out-of-time validation. Phase 4 is complete.
+- **Evidence/artifact paths:** `docs/leakage_policy.md`, `src/bankguard/features/leakage_audit.py`, `tests/test_leakage_audit.py`, `report/leakage_review_report.md`, `report/leakage_review_report.json`
+- **Problems found:** None.
+- **Next exact action:** Phase 4 is complete. Awaiting user approval to create a new branch and proceed to Phase 5 (Train and compare models).
 
 ### Task 4.2: Create Preprocessing and Verify Zero-Refit
 - **Tasks worked on:** Task 4.2 (Create preprocessing)

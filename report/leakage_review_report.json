@@ -1,0 +1,46 @@
+{
+  "overall_leakage_audit_passed": true,
+  "split_audit": {
+    "passed": true,
+    "violations": [],
+    "train_rows": 472432,
+    "val_rows": 118108,
+    "key_overlap_count": 0,
+    "temporal_order_valid": true,
+    "max_train_timestamp": 12192842,
+    "min_val_timestamp": 12192900,
+    "train_fraud_rate_pct": 3.514,
+    "val_fraud_rate_pct": 3.441
+  },
+  "feature_matrix_audit": {
+    "passed": true,
+    "violations": [],
+    "total_transformed_features": 438,
+    "target_excluded": true,
+    "id_excluded": true,
+    "raw_time_excluded": true
+  },
+  "excluded_features_registry": [
+    {
+      "column_name": "isFraud",
+      "risk_type": "Direct Target Leakage",
+      "rationale": "The ground truth label 'isFraud' represents the classification outcome. In production, chargebacks and fraud confirmation typically arrive 30\u201390 days post-transaction. Including isFraud as an input feature would result in trivial, catastrophically failing models that cannot operate in real-time inference.",
+      "scoring_moment_available": false,
+      "recommended_treatment": "Strictly isolate as label vector y; automated assertion blocks feature inclusion."
+    },
+    {
+      "column_name": "TransactionID",
+      "risk_type": "Identifier Memorization & Non-Stationary Index Leakage",
+      "rationale": "TransactionID is an arbitrary monotonic primary key assigned by the processing gateway. Including high-cardinality sequence numbers allows models to memorize specific transaction batches or proxy temporal ordering rather than learning generalizable fraud patterns.",
+      "scoring_moment_available": true,
+      "recommended_treatment": "Preserve for audit logs, API responses, and database joins; strictly exclude from model inputs."
+    },
+    {
+      "column_name": "TransactionDT",
+      "risk_type": "Temporal Lookahead & Out-of-Distribution Linear Drift",
+      "rationale": "TransactionDT is a monotonically increasing relative timestamp in seconds. Because production transactions will always have TransactionDT > max(train TransactionDT), tree models cannot extrapolate linear values and will place all future data in the rightmost leaf. Furthermore, random train-test splitting across timestamps leaks future fraud patterns into past training.",
+      "scoring_moment_available": true,
+      "recommended_treatment": "Extract stationary cyclical diurnal features (hour_of_day, sin_hour, cos_hour, day_of_week) and exclude raw linear TransactionDT from the model feature vector."
+    }
+  ]
+}
