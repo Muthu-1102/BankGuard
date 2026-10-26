@@ -12,6 +12,13 @@ from bankguard.features.feature_definition import (
     load_feature_config,
     split_features_and_target,
 )
+from bankguard.features.preprocessor import (
+    BankGuardFeatureEngineer,
+    BankGuardPreprocessor,
+    create_preprocessing_pipeline,
+    run_preprocessing_pipeline_report,
+    temporal_train_val_split,
+)
 
 __all__ = [
     "TARGET_COLUMN",
@@ -24,4 +31,9 @@ __all__ = [
     "identify_feature_types",
     "audit_feature_leakage",
     "generate_feature_inventory_report",
+    "temporal_train_val_split",
+    "BankGuardFeatureEngineer",
+    "BankGuardPreprocessor",
+    "create_preprocessing_pipeline",
+    "run_preprocessing_pipeline_report",
 ]

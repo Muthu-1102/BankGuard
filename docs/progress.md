@@ -4,7 +4,7 @@
 
 Update this file after every work session. Check a task only after its verification step passes. If a task is blocked, write the blocker and the next action. Do not mark tasks complete based on intention alone.
 
-**Current status:** Phase 4 in progress (Task 4.1 completed)  
+**Current status:** Phase 4 in progress (Task 4.2 completed)  
 **Dataset decision:** IEEE-CIS Fraud Detection Kaggle competition dataset  
 **Data policy:** Public competition data; no synthetic replacement  
 **Last updated:** In progress
@@ -24,7 +24,7 @@ Update this file after every work session. Check a task only after its verificat
 | 1. Dataset download and documentation | DONE | Expected files present; schema inventory; data card and dictionary updated from actual headers | Phase 1 complete (Tasks 1.1, 1.2, 1.3) |
 | 2. Loading, validation, and join | DONE | Quality report; join checks; tests pass | Phase 2 complete (Tasks 2.1, 2.2, 2.3) |
 | 3. Exploratory data analysis | DONE | EDA report, labeled plots, written findings | Phase 3 complete (Tasks 3.1, 3.2, 3.3) |
-| 4. Leakage-safe features | IN PROGRESS | Feature pipeline and target-leakage test | Task 4.1 complete |
+| 4. Leakage-safe features | IN PROGRESS | Feature pipeline and target-leakage test | Task 4.1 and Task 4.2 complete |
 | 5. Baseline and improved model | NOT STARTED | Saved predictions, metrics, model settings | |
 | 6. Evaluation and threshold choice | NOT STARTED | Metrics recomputed from validation predictions; threshold rationale documented | |
 | 7. Explainability | NOT STARTED | Explanation examples and limitations documented | |
@@ -36,6 +36,15 @@ Update this file after every work session. Check a task only after its verificat
 ## Work log
 
 Add a new entry at the top after each work session.
+
+### Task 4.2: Create Preprocessing and Verify Zero-Refit
+- **Tasks worked on:** Task 4.2 (Create preprocessing)
+- **What I changed:** Implemented `src/bankguard/features/preprocessor.py` with `temporal_train_val_split` (chronological 80/20 train-val split on `TransactionDT`), `BankGuardFeatureEngineer` (incorporating `log1p(TransactionAmt)`, `has_cents`, `cents_fraction`, `hour_of_day`, `sin_hour`, `cos_hour`, `day_of_week`, dropping raw `TransactionDT`), and `BankGuardPreprocessor` (scikit-learn `ColumnTransformer` with median imputation for 407 numeric features and `missing` + `OrdinalEncoder` for 31 categorical features); verified on the full 590,540 rows (472,432 train, 118,108 val); confirmed zero validation refit via cryptographic state signature assertion (`zero_refit_verified: True`); confirmed zero NaNs in transformed output arrays; serialized pipeline artifact to `artifacts/preprocessor.joblib`; generated `report/preprocessing_pipeline_report.md` and `report/preprocessing_pipeline_report.json`; added unit tests in `tests/test_preprocessor.py`.
+- **Commands run:** `d:\Projects\BankGurd\.venv\Scripts\python.exe src/bankguard/features/preprocessor.py`, `d:\Projects\BankGurd\.venv\Scripts\python.exe -m pytest`
+- **Outcome:** All 56 unit tests in repo passed in 5.18s. Transforming validation data does not alter any learned training parameters. Transformed output is ready for linear and tree baselines with zero unhandled NaNs.
+- **Evidence/artifact paths:** `src/bankguard/features/preprocessor.py`, `tests/test_preprocessor.py`, `artifacts/preprocessor.joblib`, `report/preprocessing_pipeline_report.md`, `report/preprocessing_pipeline_report.json`
+- **Problems found:** None.
+- **Next exact action:** Awaiting user approval to proceed to Task 4.3 (Review leakage risks).
 
 ### Task 4.1: Define Target and Features (Leakage Prevention)
 - **Tasks worked on:** Task 4.1 (Define the target and features)

@@ -1,0 +1,20 @@
+{
+  "train_rows": 472432,
+  "val_rows": 118108,
+  "input_feature_count": 432,
+  "engineered_feature_count": 438,
+  "numeric_features": 407,
+  "categorical_features": 31,
+  "output_shape_train": [
+    472432,
+    438
+  ],
+  "output_shape_val": [
+    118108,
+    438
+  ],
+  "train_nan_count": 0,
+  "val_nan_count": 0,
+  "zero_refit_verified": true,
+  "artifact_path": "artifacts\\preprocessor.joblib"
+}
