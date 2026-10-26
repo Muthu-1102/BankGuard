@@ -1,0 +1,115 @@
+{
+  "overall_status": "PASSED",
+  "total_checks": 8,
+  "passed_count": 8,
+  "critical_failures_count": 0,
+  "warnings_count": 0,
+  "checks": [
+    {
+      "name": "required_columns_transaction",
+      "passed": true,
+      "is_critical": true,
+      "message": "All 5 required columns present in transaction.",
+      "details": {
+        "missing_columns": [],
+        "required_columns": [
+          "TransactionID",
+          "TransactionDT",
+          "TransactionAmt",
+          "ProductCD",
+          "isFraud"
+        ]
+      }
+    },
+    {
+      "name": "key_uniqueness_transaction",
+      "passed": true,
+      "is_critical": true,
+      "message": "Key 'TransactionID' is strictly unique with 0 nulls across 590,540 rows in transaction.",
+      "details": {
+        "duplicate_count": 0,
+        "null_count": 0,
+        "total_rows": 590540
+      }
+    },
+    {
+      "name": "target_validity",
+      "passed": true,
+      "is_critical": true,
+      "message": "Target 'isFraud' is valid with allowed values {0, 1} and 0 nulls.",
+      "details": {
+        "null_count": 0,
+        "invalid_values": [],
+        "distribution": {
+          "0": 569877,
+          "1": 20663
+        }
+      }
+    },
+    {
+      "name": "numeric_ranges_TransactionAmt",
+      "passed": true,
+      "is_critical": true,
+      "message": "Amount column 'TransactionAmt' has 0 negative and 0 null values.",
+      "details": {
+        "negative_count": 0,
+        "null_count": 0
+      }
+    },
+    {
+      "name": "null_patterns_transaction",
+      "passed": true,
+      "is_critical": false,
+      "message": "Missingness analyzed in transaction: 0 column(s) >= 95.0% null, 0 completely empty column(s).",
+      "details": {
+        "high_null_columns_count": 0,
+        "high_null_columns": {},
+        "completely_empty_columns": []
+      }
+    },
+    {
+      "name": "required_columns_identity",
+      "passed": true,
+      "is_critical": true,
+      "message": "All 1 required columns present in identity.",
+      "details": {
+        "missing_columns": [],
+        "required_columns": [
+          "TransactionID"
+        ]
+      }
+    },
+    {
+      "name": "key_uniqueness_identity",
+      "passed": true,
+      "is_critical": true,
+      "message": "Key 'TransactionID' is strictly unique with 0 nulls across 144,233 rows in identity.",
+      "details": {
+        "duplicate_count": 0,
+        "null_count": 0,
+        "total_rows": 144233
+      }
+    },
+    {
+      "name": "null_patterns_identity",
+      "passed": true,
+      "is_critical": false,
+      "message": "Missingness analyzed in identity: 9 column(s) >= 95.0% null, 0 completely empty column(s).",
+      "details": {
+        "high_null_columns_count": 9,
+        "high_null_columns": {
+          "id_07": 96.43,
+          "id_08": 96.43,
+          "id_21": 96.42,
+          "id_22": 96.42,
+          "id_23": 96.42,
+          "id_24": 96.71,
+          "id_25": 96.44,
+          "id_26": 96.42,
+          "id_27": 96.42
+        },
+        "completely_empty_columns": []
+      }
+    }
+  ]
+}
