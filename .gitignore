@@ -24,6 +24,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
+*.egg-info/
+*.egg
+
 
 # Test and coverage caches
 .pytest_cache/

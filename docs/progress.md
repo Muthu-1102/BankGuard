@@ -4,7 +4,7 @@
 
 Update this file after every work session. Check a task only after its verification step passes. If a task is blocked, write the blocker and the next action. Do not mark tasks complete based on intention alone.
 
-**Current status:** Phase 1 complete  
+**Current status:** Phase 2 in progress (Task 2.1 completed)  
 **Dataset decision:** IEEE-CIS Fraud Detection Kaggle competition dataset  
 **Data policy:** Public competition data; no synthetic replacement  
 **Last updated:** In progress
@@ -22,7 +22,7 @@ Update this file after every work session. Check a task only after its verificat
 |---|---|---|---|
 | 0. Repository and environment | DONE | Folder tree, working environment, `.gitignore` checked | Phase 0 complete (Tasks 0.1, 0.2, 0.3) |
 | 1. Dataset download and documentation | DONE | Expected files present; schema inventory; data card and dictionary updated from actual headers | Phase 1 complete (Tasks 1.1, 1.2, 1.3) |
-| 2. Loading, validation, and join | NOT STARTED | Quality report; join checks; tests pass | |
+| 2. Loading, validation, and join | IN PROGRESS | Quality report; join checks; tests pass | Task 2.1 complete |
 | 3. Exploratory data analysis | NOT STARTED | EDA report, labeled plots, written findings | |
 | 4. Leakage-safe features | NOT STARTED | Feature pipeline and target-leakage test | |
 | 5. Baseline and improved model | NOT STARTED | Saved predictions, metrics, model settings | |
@@ -37,6 +37,15 @@ Update this file after every work session. Check a task only after its verificat
 
 Add a new entry at the top after each work session.
 
+### Task 2.1: Implement Loading
+- **Tasks worked on:** Task 2.1 (Implement loading)
+- **What I changed:** Switched to new branch `feature/data-pipeline`; created externalized configuration in `configs/data_config.yaml`; implemented `src/bankguard/data/loader.py` with memory optimization (`reduce_memory_usage`), custom `DatasetNotFoundError`, and configurable table loaders; installed `bankguard` in editable mode; added unit tests in `tests/test_loader.py`.
+- **Commands run:** `git checkout -b feature/data-pipeline`, `python src/bankguard/data/loader.py --nrows 1000`, `pytest`
+- **Outcome:** Repeatable loader successfully loads tables, downcasting memory by ~41% on transaction data and ~8% on identity data; raises descriptive `DatasetNotFoundError` and exits nonzero on missing files. All 12 unit tests passed.
+- **Evidence/artifact paths:** `d:/Projects/BankGurd/configs/data_config.yaml`, `d:/Projects/BankGurd/src/bankguard/data/loader.py`, `d:/Projects/BankGurd/tests/test_loader.py`
+- **Problems found:** None.
+- **Next exact action:** Awaiting user approval to proceed to Task 2.2 (Implement quality checks).
+
 ### Task 1.3: Complete Data Card and Dictionary
 - **Tasks worked on:** Task 1.3 (Complete the data card and dictionary)
 - **What I changed:** Developed `generate_schema_inventory.py` to extract exact target distributions, duplicate checks, and identity match rates; updated `data_card.md` with measured dataset facts (590,540 train tx, 144,233 train id, 20,663 fraud cases = 3.4990% prevalence, 0 duplicates, 24.42% identity match rate); generated `report/schema_inventory.csv` profiling all 435 columns; updated `data_dictionary.md` with column family mappings and verified statuses.
@@ -45,7 +54,7 @@ Add a new entry at the top after each work session.
 - **Verification performed:** Generated `report/schema_inventory.csv` and confirmed all columns have explicit roles/types and non-fabrication guarantees.
 - **Evidence/artifact paths:** `d:/Projects/BankGurd/docs/data_card.md`, `d:/Projects/BankGurd/docs/data_dictionary.md`, `d:/Projects/BankGurd/report/schema_inventory.csv`
 - **Problems found:** None.
-- **Next exact action:** Awaiting user approval to proceed to Phase 2 (Task 2.1: Implement loading).
+- **Next exact action:** Completed.
 
 ### Task 1.2: Inspect Schemas and Sizes
 - **Tasks worked on:** Task 1.2 (Inspect schemas and sizes)

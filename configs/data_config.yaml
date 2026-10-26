@@ -1,0 +1,17 @@
+# BankGuard Data Configuration
+# Paths are relative to the repository root directory.
+
+data:
+  raw_dir: "data/raw/ieee_cis"
+  processed_dir: "data/processed"
+  reports_dir: "report"
+
+  files:
+    train_transaction: "data/raw/ieee_cis/train_transaction.csv"
+    train_identity: "data/raw/ieee_cis/train_identity.csv"
+    test_transaction: "data/raw/ieee_cis/test_transaction.csv"
+    test_identity: "data/raw/ieee_cis/test_identity.csv"
+
+  loading:
+    optimize_memory: true
+    chunk_size: 100000
