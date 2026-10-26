@@ -1,0 +1,164 @@
+{
+  "total_columns_analyzed": 432,
+  "total_rows_analyzed": 590540,
+  "complete_columns_count": 18,
+  "tier_distribution": {
+    "Complete (0%)": 18,
+    "Low (<20%)": 162,
+    "Moderate (20-50%)": 38,
+    "High (50-80%)": 140,
+    "Extreme (>=80%)": 74
+  },
+  "top_informative_columns": [
+    {
+      "column_name": "R_emaildomain",
+      "total_nulls": 453249,
+      "overall_null_pct": 76.7516,
+      "fraud_null_pct": 45.6662,
+      "legit_null_pct": 77.8787,
+      "diff_pct": -32.2125,
+      "abs_diff_pct": 32.2125,
+      "missingness_tier": "High (50-80%)"
+    },
+    {
+      "column_name": "id_02",
+      "total_nulls": 449668,
+      "overall_null_pct": 76.1452,
+      "fraud_null_pct": 45.6904,
+      "legit_null_pct": 77.2495,
+      "diff_pct": -31.5591,
+      "abs_diff_pct": 31.5591,
+      "missingness_tier": "High (50-80%)"
+    },
+    {
+      "column_name": "id_36",
+      "total_nulls": 449555,
+      "overall_null_pct": 76.1261,
+      "fraud_null_pct": 45.6904,
+      "legit_null_pct": 77.2296,
+      "diff_pct": -31.5392,
+      "abs_diff_pct": 31.5392,
+      "missingness_tier": "High (50-80%)"
+    },
+    {
+      "column_name": "id_15",
+      "total_nulls": 449555,
+      "overall_null_pct": 76.1261,
+      "fraud_null_pct": 45.6904,
+      "legit_null_pct": 77.2296,
+      "diff_pct": -31.5392,
+      "abs_diff_pct": 31.5392,
+      "missingness_tier": "High (50-80%)"
+    },
+    {
+      "column_name": "id_38",
+      "total_nulls": 449555,
+      "overall_null_pct": 76.1261,
+      "fraud_null_pct": 45.6904,
+      "legit_null_pct": 77.2296,
+      "diff_pct": -31.5392,
+      "abs_diff_pct": 31.5392,
+      "missingness_tier": "High (50-80%)"
+    },
+    {
+      "column_name": "id_37",
+      "total_nulls": 449555,
+      "overall_null_pct": 76.1261,
+      "fraud_null_pct": 45.6904,
+      "legit_null_pct": 77.2296,
+      "diff_pct": -31.5392,
+      "abs_diff_pct": 31.5392,
+      "missingness_tier": "High (50-80%)"
+    },
+    {
+      "column_name": "id_35",
+      "total_nulls": 449555,
+      "overall_null_pct": 76.1261,
+      "fraud_null_pct": 45.6904,
+      "legit_null_pct": 77.2296,
+      "diff_pct": -31.5392,
+      "abs_diff_pct": 31.5392,
+      "missingness_tier": "High (50-80%)"
+    },
+    {
+      "column_name": "id_28",
+      "total_nulls": 449562,
+      "overall_null_pct": 76.1273,
+      "fraud_null_pct": 45.7097,
+      "legit_null_pct": 77.2302,
+      "diff_pct": -31.5205,
+      "abs_diff_pct": 31.5205,
+      "missingness_tier": "High (50-80%)"
+    },
+    {
+      "column_name": "id_11",
+      "total_nulls": 449562,
+      "overall_null_pct": 76.1273,
+      "fraud_null_pct": 45.7097,
+      "legit_null_pct": 77.2302,
+      "diff_pct": -31.5205,
+      "abs_diff_pct": 31.5205,
+      "missingness_tier": "High (50-80%)"
+    },
+    {
+      "column_name": "id_29",
+      "total_nulls": 449562,
+      "overall_null_pct": 76.1273,
+      "fraud_null_pct": 45.7097,
+      "legit_null_pct": 77.2302,
+      "diff_pct": -31.5205,
+      "abs_diff_pct": 31.5205,
+      "missingness_tier": "High (50-80%)"
+    },
+    {
+      "column_name": "DeviceType",
+      "total_nulls": 449730,
+      "overall_null_pct": 76.1557,
+      "fraud_null_pct": 45.7436,
+      "legit_null_pct": 77.2584,
+      "diff_pct": -31.5148,
+      "abs_diff_pct": 31.5148,
+      "missingness_tier": "High (50-80%)"
+    },
+    {
+      "column_name": "id_01",
+      "total_nulls": 446307,
+      "overall_null_pct": 75.5761,
+      "fraud_null_pct": 45.2258,
+      "legit_null_pct": 76.6765,
+      "diff_pct": -31.4507,
+      "abs_diff_pct": 31.4507,
+      "missingness_tier": "High (50-80%)"
+    },
+    {
+      "column_name": "id_12",
+      "total_nulls": 446307,
+      "overall_null_pct": 75.5761,
+      "fraud_null_pct": 45.2258,
+      "legit_null_pct": 76.6765,
+      "diff_pct": -31.4507,
+      "abs_diff_pct": 31.4507,
+      "missingness_tier": "High (50-80%)"
+    },
+    {
+      "column_name": "id_31",
+      "total_nulls": 450258,
+      "overall_null_pct": 76.2451,
+      "fraud_null_pct": 45.9372,
+      "legit_null_pct": 77.3441,
+      "diff_pct": -31.4069,
+      "abs_diff_pct": 31.4069,
+      "missingness_tier": "High (50-80%)"
+    },
+    {
+      "column_name": "id_05",
+      "total_nulls": 453675,
+      "overall_null_pct": 76.8238,
+      "fraud_null_pct": 46.8519,
+      "legit_null_pct": 77.9105,
+      "diff_pct": -31.0586,
+      "abs_diff_pct": 31.0586,
+      "missingness_tier": "High (50-80%)"
+    }
+  ]
+}
