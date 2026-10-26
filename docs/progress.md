@@ -4,7 +4,7 @@
 
 Update this file after every work session. Check a task only after its verification step passes. If a task is blocked, write the blocker and the next action. Do not mark tasks complete based on intention alone.
 
-**Current status:** Phase 4 complete (Awaiting approval for Phase 5)  
+**Current status:** Phase 5 in progress (Task 5.1 completed)  
 **Dataset decision:** IEEE-CIS Fraud Detection Kaggle competition dataset  
 **Data policy:** Public competition data; no synthetic replacement  
 **Last updated:** In progress
@@ -25,7 +25,7 @@ Update this file after every work session. Check a task only after its verificat
 | 2. Loading, validation, and join | DONE | Quality report; join checks; tests pass | Phase 2 complete (Tasks 2.1, 2.2, 2.3) |
 | 3. Exploratory data analysis | DONE | EDA report, labeled plots, written findings | Phase 3 complete (Tasks 3.1, 3.2, 3.3) |
 | 4. Leakage-safe features | DONE | Feature pipeline and target-leakage test | Phase 4 complete (Tasks 4.1, 4.2, 4.3) |
-| 5. Baseline and improved model | NOT STARTED | Saved predictions, metrics, model settings | |
+| 5. Baseline and improved model | IN PROGRESS | Saved predictions, metrics, model settings | Task 5.1 complete |
 | 6. Evaluation and threshold choice | NOT STARTED | Metrics recomputed from validation predictions; threshold rationale documented | |
 | 7. Explainability | NOT STARTED | Explanation examples and limitations documented | |
 | 8. Decision policy and API | NOT STARTED | Unit/API tests and working health/prediction endpoints | |
@@ -36,6 +36,15 @@ Update this file after every work session. Check a task only after its verificat
 ## Work log
 
 Add a new entry at the top after each work session.
+
+### Task 5.1: Create a Baseline Model and Evaluate
+- **Tasks worked on:** Task 5.1 (Create a baseline)
+- **What I changed:** Switched to new branch `feature/phase-5-models`; implemented `src/bankguard/models/metrics.py` providing class-aware evaluation (PR-AUC, ROC-AUC, Brier score, log loss, precision, recall, F1, confusion matrix, specificity, false positive rate); implemented `src/bankguard/models/baseline.py` training a reproducible Logistic Regression baseline model with balanced class weighting on 472,432 chronologically partitioned training rows x 438 features; scored 118,108 out-of-time validation transactions; achieved PR-AUC of 0.1420 (4.1x above 0.0344 random guess baseline), ROC-AUC of 0.7844, and Brier score of 0.1716; saved model artifact to `artifacts/baseline_model.joblib`; saved validation predictions to `artifacts/baseline_predictions.npz`; generated `report/baseline_metrics.md` and `report/baseline_metrics.json`; added comprehensive unit tests in `tests/test_metrics.py` and `tests/test_baseline.py`.
+- **Commands run:** `git checkout -b feature/phase-5-models`, `d:\Projects\BankGurd\.venv\Scripts\python.exe src/bankguard/models/baseline.py`, `d:\Projects\BankGurd\.venv\Scripts\python.exe -m pytest`
+- **Outcome:** All 70 unit tests in repository passed in 9.47s. Baseline model weights and validation predictions are persisted and ready for comparative benchmarking against the candidate gradient boosted tree in Task 5.2.
+- **Evidence/artifact paths:** `src/bankguard/models/baseline.py`, `src/bankguard/models/metrics.py`, `artifacts/baseline_model.joblib`, `artifacts/baseline_predictions.npz`, `report/baseline_metrics.md`, `report/baseline_metrics.json`, `tests/test_metrics.py`, `tests/test_baseline.py`
+- **Problems found:** None.
+- **Next exact action:** Awaiting user approval to proceed to Task 5.2 (Train an improved model).
 
 ### Task 4.3: Review Leakage Risks and Establish Policy
 - **Tasks worked on:** Task 4.3 (Review leakage risks)
