@@ -4,7 +4,7 @@
 
 Update this file after every work session. Check a task only after its verification step passes. If a task is blocked, write the blocker and the next action. Do not mark tasks complete based on intention alone.
 
-**Current status:** Phase 3 complete (Awaiting approval for Phase 4)  
+**Current status:** Phase 4 in progress (Task 4.1 completed)  
 **Dataset decision:** IEEE-CIS Fraud Detection Kaggle competition dataset  
 **Data policy:** Public competition data; no synthetic replacement  
 **Last updated:** In progress
@@ -24,7 +24,7 @@ Update this file after every work session. Check a task only after its verificat
 | 1. Dataset download and documentation | DONE | Expected files present; schema inventory; data card and dictionary updated from actual headers | Phase 1 complete (Tasks 1.1, 1.2, 1.3) |
 | 2. Loading, validation, and join | DONE | Quality report; join checks; tests pass | Phase 2 complete (Tasks 2.1, 2.2, 2.3) |
 | 3. Exploratory data analysis | DONE | EDA report, labeled plots, written findings | Phase 3 complete (Tasks 3.1, 3.2, 3.3) |
-| 4. Leakage-safe features | NOT STARTED | Feature pipeline and target-leakage test | |
+| 4. Leakage-safe features | IN PROGRESS | Feature pipeline and target-leakage test | Task 4.1 complete |
 | 5. Baseline and improved model | NOT STARTED | Saved predictions, metrics, model settings | |
 | 6. Evaluation and threshold choice | NOT STARTED | Metrics recomputed from validation predictions; threshold rationale documented | |
 | 7. Explainability | NOT STARTED | Explanation examples and limitations documented | |
@@ -36,6 +36,15 @@ Update this file after every work session. Check a task only after its verificat
 ## Work log
 
 Add a new entry at the top after each work session.
+
+### Task 4.1: Define Target and Features (Leakage Prevention)
+- **Tasks worked on:** Task 4.1 (Define the target and features)
+- **What I changed:** Switched to new branch `feature/phase-4-features`; created feature configuration in `configs/feature_config.yaml` explicitly defining target (`isFraud`), primary identifier (`TransactionID`), exclusions, and categorical families; implemented `src/bankguard/features/feature_definition.py` with `split_features_and_target()` enforcing clean programmatic X/y separation, `get_feature_names()`, `identify_feature_types()`, and automated leakage auditing with `audit_feature_leakage()` and `TargetLeakageError`; verified on the full 590,540 joined dataset (432 features in X, 401 numeric, 31 categorical); generated `report/feature_definition_report.md` and `report/feature_definition_report.json`; added comprehensive unit tests in `tests/test_feature_definition.py` verifying automated absence of target from X.
+- **Commands run:** `git checkout -b feature/phase-4-features`, `d:\Projects\BankGurd\.venv\Scripts\python.exe src/bankguard/features/feature_definition.py`, `d:\Projects\BankGurd\.venv\Scripts\python.exe -m pytest`
+- **Outcome:** All 49 unit tests passed in 3.11s. Automated tests confirm `isFraud` is completely absent from the feature matrix X; any attempted target leakage immediately raises `TargetLeakageError`.
+- **Evidence/artifact paths:** `configs/feature_config.yaml`, `src/bankguard/features/feature_definition.py`, `tests/test_feature_definition.py`, `report/feature_definition_report.md`, `report/feature_definition_report.json`
+- **Problems found:** None.
+- **Next exact action:** Awaiting user approval to proceed to Task 4.2 (Create preprocessing).
 
 ### Task 3.3: Explore Amount, Time, and Key Categorical Drivers
 - **Tasks worked on:** Task 3.3 (Explore amount and time)

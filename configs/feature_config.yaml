@@ -1,0 +1,63 @@
+# BankGuard Feature Configuration
+# Explicit definitions of target, identifiers, exclusions, and column roles.
+
+target:
+  name: "isFraud"
+  positive_class: 1
+  negative_class: 0
+  description: "Binary fraud indicator (1 = Fraud, 0 = Legitimate)"
+
+identifiers:
+  primary_key: "TransactionID"
+  description: "Unique integer identifier for transactions and identities"
+
+exclusions:
+  default:
+    - "isFraud"
+    - "TransactionID"
+
+categorical_features:
+  transaction:
+    - "ProductCD"
+    - "card4"
+    - "card6"
+    - "P_emaildomain"
+    - "R_emaildomain"
+    - "M1"
+    - "M2"
+    - "M3"
+    - "M4"
+    - "M5"
+    - "M6"
+    - "M7"
+    - "M8"
+    - "M9"
+  identity:
+    - "DeviceType"
+    - "DeviceInfo"
+    - "id_12"
+    - "id_15"
+    - "id_16"
+    - "id_23"
+    - "id_27"
+    - "id_28"
+    - "id_29"
+    - "id_30"
+    - "id_31"
+    - "id_33"
+    - "id_34"
+    - "id_35"
+    - "id_36"
+    - "id_37"
+    - "id_38"
+
+engineered_features:
+  temporal:
+    - "hour_of_day"
+    - "day_of_week"
+    - "sin_hour"
+    - "cos_hour"
+  amount:
+    - "log_TransactionAmt"
+    - "has_cents"
+    - "cents_fraction"

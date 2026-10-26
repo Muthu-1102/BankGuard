@@ -1,0 +1,14 @@
+{
+  "total_columns_input": 434,
+  "total_rows": 590540,
+  "target_column": "isFraud",
+  "target_present": true,
+  "id_column": "TransactionID",
+  "id_present": true,
+  "feature_count": 432,
+  "numeric_feature_count": 401,
+  "categorical_feature_count": 31,
+  "leakage_audit_passed": true,
+  "target_in_features": false,
+  "id_in_features": false
+}
