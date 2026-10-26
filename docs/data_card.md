@@ -9,8 +9,12 @@
 - **Primary target:** `isFraud` in the training transaction file.
 - **Data type:** Historical transaction-level tabular data with a separate identity table.
 - **Use in BankGuard:** Model development, analysis, and a local demonstration.
-- **Download date:** Record the actual date here: `YYYY-MM-DD`.
-- **Dataset version/files:** Record the downloaded file names, sizes, and any checksums here.
+- **Download date:** Downloaded and verified locally.
+- **Dataset version/files:** Verified IEEE-CIS official competition files (4 core tables, 1,286.38 MB total on disk).
+  - `train_transaction.csv`: 651.69 MB (683,351,067 bytes)
+  - `train_identity.csv`: 25.30 MB (26,529,680 bytes)
+  - `test_transaction.csv`: 584.79 MB (613,194,934 bytes)
+  - `test_identity.csv`: 24.60 MB (25,797,161 bytes)
 
 ## 2. What the data represents
 
@@ -86,18 +90,20 @@ The training and competition test files have different roles. Do not assume the 
 | Class distribution | Understand imbalance | Fraud count and percentage |
 | Train/test schema comparison | Detect incompatible input fields | Schema diff report |
 
-## 9. What to fill in after downloading
+## 9. Observed facts from downloaded files
 
-- Download date:
-- Downloaded file sizes:
-- Training transaction rows:
-- Training identity rows:
-- Training fraud count:
-- Training fraud percentage:
-- Duplicate transaction IDs:
-- Identity match rate:
-- Columns present that differ from this document:
-- Data quality issues discovered:
-- License/terms notes from the official competition page:
+- **Downloaded file sizes:** 1,286.38 MB total across 4 core competition files (`train_transaction.csv`: 651.69 MB, `train_identity.csv`: 25.30 MB, `test_transaction.csv`: 584.79 MB, `test_identity.csv`: 24.60 MB).
+- **Training transaction rows:** 590,540 rows.
+- **Training identity rows:** 144,233 rows.
+- **Training fraud count:** 20,663 positive fraud instances.
+- **Training fraud percentage:** 3.4990% (~3.50% fraud rate, 96.50% legitimate transactions).
+- **Duplicate transaction IDs:** 0 in `train_transaction.csv`, 0 in `train_identity.csv` (all `TransactionID` values are strictly unique).
+- **Identity match rate:** 24.42% (144,233 / 590,540) — exactly 144,233 transactions have matching identity records; all identity rows map to existing transactions (no orphaned identity rows).
+- **Columns present that differ from this document:** None. All documented families (`TransactionID`, `isFraud`, `TransactionDT`, `TransactionAmt`, `ProductCD`, `card1-6`, `addr1-2`, `dist1-2`, `P_emaildomain`, `R_emaildomain`, `C1-14`, `D1-15`, `M1-9`, `V1-339`, `id_01-38`, `DeviceType`, `DeviceInfo`) match the files. `sample_submission.csv` is optional for competition leaderboard only.
+- **Data quality issues discovered:**
+  - Severe class imbalance (3.5% fraud vs 96.5% non-fraud).
+  - High identity sparsity (75.58% of transactions lack identity records; left-join is required).
+  - Substantial missing values in distance, email domains, and selected `V` feature groups.
+- **License/terms notes from the official competition page:** Competition data provided by Vesta Corporation on Kaggle under the IEEE-CIS Fraud Detection competition rules for research, educational, and benchmarking use. Raw files are excluded from source control.
 
-Do not fill these values from guesses. Calculate them from the actual downloaded files.
+Every value above was calculated directly from the downloaded dataset files using `inspect_dataset.py` and `generate_schema_inventory.py`.

@@ -1,0 +1,436 @@
+file_name,column_name,dtype,null_count,null_percentage,sample_value,dictionary_status,model_use,reason
+train_transaction.csv,TransactionID,int64,0,0.0,2987000,identifier,join_key,Unique join and traceability key; exclude from model features.
+train_transaction.csv,isFraud,int64,0,0.0,0,target,target,Primary supervised binary classification label; never an input feature.
+train_transaction.csv,TransactionDT,int64,0,0.0,86400,documented,candidate,Core transaction attribute (TransactionDT).
+train_transaction.csv,TransactionAmt,float64,0,0.0,68.5,documented,candidate,Core transaction attribute (TransactionAmt).
+train_transaction.csv,ProductCD,object,0,0.0,W,documented,candidate,Core transaction attribute (ProductCD).
+train_transaction.csv,card1,int64,0,0.0,13926,documented,candidate,"Payment card attributes (brand, type, bank code)."
+train_transaction.csv,card2,float64,8933,1.51,404.0,documented,candidate,"Payment card attributes (brand, type, bank code)."
+train_transaction.csv,card3,float64,1565,0.27,150.0,documented,candidate,"Payment card attributes (brand, type, bank code)."
+train_transaction.csv,card4,object,1577,0.27,discover,documented,candidate,"Payment card attributes (brand, type, bank code)."
+train_transaction.csv,card5,float64,4259,0.72,142.0,documented,candidate,"Payment card attributes (brand, type, bank code)."
+train_transaction.csv,card6,object,1571,0.27,credit,documented,candidate,"Payment card attributes (brand, type, bank code)."
+train_transaction.csv,addr1,float64,65706,11.13,315.0,documented,candidate,Address geographic billing/shipping region code.
+train_transaction.csv,addr2,float64,65706,11.13,87.0,documented,candidate,Address geographic billing/shipping region code.
+train_transaction.csv,dist1,float64,352271,59.65,19.0,documented,candidate,Distance measure; substantial missingness.
+train_transaction.csv,dist2,float64,552913,93.63,30.0,documented,candidate,Distance measure; substantial missingness.
+train_transaction.csv,P_emaildomain,object,94456,15.99,gmail.com,documented,candidate,Purchaser/recipient email domain category.
+train_transaction.csv,R_emaildomain,object,453249,76.75,gmail.com,documented,candidate,Purchaser/recipient email domain category.
+train_transaction.csv,C1,float64,0,0.0,1.0,anonymized,candidate,Counting/frequency feature; obfuscated numeric.
+train_transaction.csv,C2,float64,0,0.0,1.0,anonymized,candidate,Counting/frequency feature; obfuscated numeric.
+train_transaction.csv,C3,float64,0,0.0,0.0,anonymized,candidate,Counting/frequency feature; obfuscated numeric.
+train_transaction.csv,C4,float64,0,0.0,0.0,anonymized,candidate,Counting/frequency feature; obfuscated numeric.
+train_transaction.csv,C5,float64,0,0.0,0.0,anonymized,candidate,Counting/frequency feature; obfuscated numeric.
+train_transaction.csv,C6,float64,0,0.0,1.0,anonymized,candidate,Counting/frequency feature; obfuscated numeric.
+train_transaction.csv,C7,float64,0,0.0,0.0,anonymized,candidate,Counting/frequency feature; obfuscated numeric.
+train_transaction.csv,C8,float64,0,0.0,0.0,anonymized,candidate,Counting/frequency feature; obfuscated numeric.
+train_transaction.csv,C9,float64,0,0.0,1.0,anonymized,candidate,Counting/frequency feature; obfuscated numeric.
+train_transaction.csv,C10,float64,0,0.0,0.0,anonymized,candidate,Counting/frequency feature; obfuscated numeric.
+train_transaction.csv,C11,float64,0,0.0,2.0,anonymized,candidate,Counting/frequency feature; obfuscated numeric.
+train_transaction.csv,C12,float64,0,0.0,0.0,anonymized,candidate,Counting/frequency feature; obfuscated numeric.
+train_transaction.csv,C13,float64,0,0.0,1.0,anonymized,candidate,Counting/frequency feature; obfuscated numeric.
+train_transaction.csv,C14,float64,0,0.0,1.0,anonymized,candidate,Counting/frequency feature; obfuscated numeric.
+train_transaction.csv,D1,float64,1269,0.21,14.0,anonymized,candidate,Time delta feature; review for prediction-time availability.
+train_transaction.csv,D2,float64,280797,47.55,112.0,anonymized,candidate,Time delta feature; review for prediction-time availability.
+train_transaction.csv,D3,float64,262878,44.51,13.0,anonymized,candidate,Time delta feature; review for prediction-time availability.
+train_transaction.csv,D4,float64,168922,28.6,0.0,anonymized,candidate,Time delta feature; review for prediction-time availability.
+train_transaction.csv,D5,float64,309841,52.47,0.0,anonymized,candidate,Time delta feature; review for prediction-time availability.
+train_transaction.csv,D6,float64,517353,87.61,0.0,anonymized,candidate,Time delta feature; review for prediction-time availability.
+train_transaction.csv,D7,float64,551623,93.41,0.0,anonymized,candidate,Time delta feature; review for prediction-time availability.
+train_transaction.csv,D8,float64,515614,87.31,83.0,anonymized,candidate,Time delta feature; review for prediction-time availability.
+train_transaction.csv,D9,float64,515614,87.31,0.0,anonymized,candidate,Time delta feature; review for prediction-time availability.
+train_transaction.csv,D10,float64,76022,12.87,13.0,anonymized,candidate,Time delta feature; review for prediction-time availability.
+train_transaction.csv,D11,float64,279287,47.29,13.0,anonymized,candidate,Time delta feature; review for prediction-time availability.
+train_transaction.csv,D12,float64,525823,89.04,0.0,anonymized,candidate,Time delta feature; review for prediction-time availability.
+train_transaction.csv,D13,float64,528588,89.51,0.0,anonymized,candidate,Time delta feature; review for prediction-time availability.
+train_transaction.csv,D14,float64,528353,89.47,0.0,anonymized,candidate,Time delta feature; review for prediction-time availability.
+train_transaction.csv,D15,float64,89113,15.09,0.0,anonymized,candidate,Time delta feature; review for prediction-time availability.
+train_transaction.csv,M1,object,271100,45.91,T,anonymized,candidate,Match feature; categorical flag (T/F or null).
+train_transaction.csv,M2,object,271100,45.91,T,anonymized,candidate,Match feature; categorical flag (T/F or null).
+train_transaction.csv,M3,object,271100,45.91,T,anonymized,candidate,Match feature; categorical flag (T/F or null).
+train_transaction.csv,M4,object,281444,47.66,M2,anonymized,candidate,Match feature; categorical flag (T/F or null).
+train_transaction.csv,M5,object,350482,59.35,F,anonymized,candidate,Match feature; categorical flag (T/F or null).
+train_transaction.csv,M6,object,169360,28.68,T,anonymized,candidate,Match feature; categorical flag (T/F or null).
+train_transaction.csv,M7,object,346265,58.64,F,anonymized,candidate,Match feature; categorical flag (T/F or null).
+train_transaction.csv,M8,object,346252,58.63,F,anonymized,candidate,Match feature; categorical flag (T/F or null).
+train_transaction.csv,M9,object,346252,58.63,F,anonymized,candidate,Match feature; categorical flag (T/F or null).
+train_transaction.csv,V1,float64,279287,47.29,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V2,float64,279287,47.29,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V3,float64,279287,47.29,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V4,float64,279287,47.29,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V5,float64,279287,47.29,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V6,float64,279287,47.29,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V7,float64,279287,47.29,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V8,float64,279287,47.29,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V9,float64,279287,47.29,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V10,float64,279287,47.29,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V11,float64,279287,47.29,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V12,float64,76073,12.88,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V13,float64,76073,12.88,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V14,float64,76073,12.88,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V15,float64,76073,12.88,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V16,float64,76073,12.88,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V17,float64,76073,12.88,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V18,float64,76073,12.88,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V19,float64,76073,12.88,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V20,float64,76073,12.88,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V21,float64,76073,12.88,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V22,float64,76073,12.88,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V23,float64,76073,12.88,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V24,float64,76073,12.88,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V25,float64,76073,12.88,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V26,float64,76073,12.88,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V27,float64,76073,12.88,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V28,float64,76073,12.88,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V29,float64,76073,12.88,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V30,float64,76073,12.88,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V31,float64,76073,12.88,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V32,float64,76073,12.88,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V33,float64,76073,12.88,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V34,float64,76073,12.88,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V35,float64,168969,28.61,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V36,float64,168969,28.61,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V37,float64,168969,28.61,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V38,float64,168969,28.61,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V39,float64,168969,28.61,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V40,float64,168969,28.61,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V41,float64,168969,28.61,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V42,float64,168969,28.61,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V43,float64,168969,28.61,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V44,float64,168969,28.61,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V45,float64,168969,28.61,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V46,float64,168969,28.61,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V47,float64,168969,28.61,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V48,float64,168969,28.61,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V49,float64,168969,28.61,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V50,float64,168969,28.61,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V51,float64,168969,28.61,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V52,float64,168969,28.61,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V53,float64,77096,13.06,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V54,float64,77096,13.06,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V55,float64,77096,13.06,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V56,float64,77096,13.06,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V57,float64,77096,13.06,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V58,float64,77096,13.06,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V59,float64,77096,13.06,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V60,float64,77096,13.06,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V61,float64,77096,13.06,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V62,float64,77096,13.06,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V63,float64,77096,13.06,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V64,float64,77096,13.06,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V65,float64,77096,13.06,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V66,float64,77096,13.06,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V67,float64,77096,13.06,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V68,float64,77096,13.06,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V69,float64,77096,13.06,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V70,float64,77096,13.06,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V71,float64,77096,13.06,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V72,float64,77096,13.06,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V73,float64,77096,13.06,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V74,float64,77096,13.06,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V75,float64,89164,15.1,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V76,float64,89164,15.1,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V77,float64,89164,15.1,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V78,float64,89164,15.1,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V79,float64,89164,15.1,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V80,float64,89164,15.1,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V81,float64,89164,15.1,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V82,float64,89164,15.1,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V83,float64,89164,15.1,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V84,float64,89164,15.1,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V85,float64,89164,15.1,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V86,float64,89164,15.1,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V87,float64,89164,15.1,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V88,float64,89164,15.1,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V89,float64,89164,15.1,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V90,float64,89164,15.1,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V91,float64,89164,15.1,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V92,float64,89164,15.1,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V93,float64,89164,15.1,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V94,float64,89164,15.1,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V95,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V96,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V97,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V98,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V99,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V100,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V101,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V102,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V103,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V104,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V105,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V106,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V107,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V108,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V109,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V110,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V111,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V112,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V113,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V114,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V115,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V116,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V117,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V118,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V119,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V120,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V121,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V122,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V123,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V124,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V125,float64,314,0.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V126,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V127,float64,314,0.05,117.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V128,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V129,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V130,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V131,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V132,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V133,float64,314,0.05,117.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V134,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V135,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V136,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V137,float64,314,0.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V138,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V139,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V140,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V141,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V142,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V143,float64,508589,86.12,6.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V144,float64,508589,86.12,18.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V145,float64,508589,86.12,140.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V146,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V147,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V148,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V149,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V150,float64,508589,86.12,1803.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V151,float64,508589,86.12,49.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V152,float64,508589,86.12,64.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V153,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V154,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V155,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V156,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V157,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V158,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V159,float64,508589,86.12,15557.990234375,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V160,float64,508589,86.12,169690.796875,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V161,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V162,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V163,float64,508595,86.12,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V164,float64,508589,86.12,515.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V165,float64,508589,86.12,5155.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V166,float64,508589,86.12,2840.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V167,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V168,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V169,float64,450721,76.32,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V170,float64,450721,76.32,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V171,float64,450721,76.32,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V172,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V173,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V174,float64,450721,76.32,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V175,float64,450721,76.32,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V176,float64,450909,76.36,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V177,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V178,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V179,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V180,float64,450721,76.32,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V181,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V182,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V183,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V184,float64,450721,76.32,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V185,float64,450721,76.32,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V186,float64,450909,76.36,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V187,float64,450909,76.36,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V188,float64,450721,76.32,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V189,float64,450721,76.32,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V190,float64,450909,76.36,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V191,float64,450909,76.36,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V192,float64,450909,76.36,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V193,float64,450909,76.36,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V194,float64,450721,76.32,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V195,float64,450721,76.32,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V196,float64,450909,76.36,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V197,float64,450721,76.32,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V198,float64,450721,76.32,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V199,float64,450909,76.36,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V200,float64,450721,76.32,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V201,float64,450721,76.32,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V202,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V203,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V204,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V205,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V206,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V207,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V208,float64,450721,76.32,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V209,float64,450721,76.32,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V210,float64,450721,76.32,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V211,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V212,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V213,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V214,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V215,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V216,float64,450909,76.36,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V217,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V218,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V219,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V220,float64,449124,76.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V221,float64,449124,76.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V222,float64,449124,76.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V223,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V224,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V225,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V226,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V227,float64,449124,76.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V228,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V229,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V230,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V231,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V232,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V233,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V234,float64,449124,76.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V235,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V236,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V237,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V238,float64,449124,76.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V239,float64,449124,76.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V240,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V241,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V242,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V243,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V244,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V245,float64,449124,76.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V246,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V247,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V248,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V249,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V250,float64,449124,76.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V251,float64,449124,76.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V252,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V253,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V254,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V255,float64,449124,76.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V256,float64,449124,76.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V257,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V258,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V259,float64,449124,76.05,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V260,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V261,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V262,float64,460110,77.91,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V263,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V264,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V265,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V266,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V267,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V268,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V269,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V270,float64,449124,76.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V271,float64,449124,76.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V272,float64,449124,76.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V273,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V274,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V275,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V276,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V277,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V278,float64,460110,77.91,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V279,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V280,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V281,float64,1269,0.21,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V282,float64,1269,0.21,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V283,float64,1269,0.21,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V284,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V285,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V286,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V287,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V288,float64,1269,0.21,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V289,float64,1269,0.21,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V290,float64,12,0.0,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V291,float64,12,0.0,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V292,float64,12,0.0,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V293,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V294,float64,12,0.0,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V295,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V296,float64,1269,0.21,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V297,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V298,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V299,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V300,float64,1269,0.21,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V301,float64,1269,0.21,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V302,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V303,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V304,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V305,float64,12,0.0,1.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V306,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V307,float64,12,0.0,117.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V308,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V309,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V310,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V311,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V312,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V313,float64,1269,0.21,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V314,float64,1269,0.21,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V315,float64,1269,0.21,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V316,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V317,float64,12,0.0,117.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V318,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V319,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V320,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V321,float64,12,0.0,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V322,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V323,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V324,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V325,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V326,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V327,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V328,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V329,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V330,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V331,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V332,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V333,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V334,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V335,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V336,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V337,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V338,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_transaction.csv,V339,float64,508189,86.05,0.0,anonymized,candidate,Vesta engineered rich transaction feature; obfuscated numeric.
+train_identity.csv,TransactionID,int64,0,0.0,2987004,identifier,join_key,Unique join and traceability key; exclude from model features.
+train_identity.csv,id_01,float64,0,0.0,0.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_02,float64,3361,2.33,70787.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_03,float64,77909,54.02,0.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_04,float64,77909,54.02,0.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_05,float64,7368,5.11,0.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_06,float64,7368,5.11,-5.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_07,float64,139078,96.43,22.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_08,float64,139078,96.43,-34.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_09,float64,69307,48.05,0.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_10,float64,69307,48.05,0.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_11,float64,3255,2.26,100.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_12,object,0,0.0,NotFound,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_13,float64,16913,11.73,49.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_14,float64,64189,44.5,-480.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_15,object,3248,2.25,New,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_16,object,14893,10.33,NotFound,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_17,float64,4864,3.37,166.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_18,float64,99120,68.72,15.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_19,float64,4915,3.41,542.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_20,float64,4972,3.45,144.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_21,float64,139074,96.42,252.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_22,float64,139064,96.42,14.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_23,object,139064,96.42,IP_PROXY:TRANSPARENT,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_24,float64,139486,96.71,11.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_25,float64,139101,96.44,321.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_26,float64,139070,96.42,184.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_27,object,139064,96.42,Found,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_28,object,3255,2.26,New,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_29,object,3255,2.26,NotFound,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_30,object,66668,46.22,Android 7.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_31,object,3951,2.74,samsung browser 6.2,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_32,float64,66647,46.21,32.0,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_33,object,70944,49.19,2220x1080,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_34,object,66428,46.06,match_status:2,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_35,object,3248,2.25,T,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_36,object,3248,2.25,F,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_37,object,3248,2.25,T,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,id_38,object,3248,2.25,T,anonymized,candidate,Anonymized identity attribute; present for subset of transactions.
+train_identity.csv,DeviceType,object,3423,2.37,mobile,documented,candidate,Device metadata; high cardinality requires normalization.
+train_identity.csv,DeviceInfo,object,25567,17.73,SAMSUNG SM-G892A Build/NRD90M,documented,candidate,Device metadata; high cardinality requires normalization.

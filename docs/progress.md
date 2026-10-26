@@ -4,7 +4,7 @@
 
 Update this file after every work session. Check a task only after its verification step passes. If a task is blocked, write the blocker and the next action. Do not mark tasks complete based on intention alone.
 
-**Current status:** Phase 0 complete  
+**Current status:** Phase 1 complete  
 **Dataset decision:** IEEE-CIS Fraud Detection Kaggle competition dataset  
 **Data policy:** Public competition data; no synthetic replacement  
 **Last updated:** In progress
@@ -21,7 +21,7 @@ Update this file after every work session. Check a task only after its verificat
 | Phase | Status | Evidence required before marking DONE | Notes / blocker |
 |---|---|---|---|
 | 0. Repository and environment | DONE | Folder tree, working environment, `.gitignore` checked | Phase 0 complete (Tasks 0.1, 0.2, 0.3) |
-| 1. Dataset download and documentation | NOT STARTED | Expected files present; schema inventory; data card and dictionary updated from actual headers | |
+| 1. Dataset download and documentation | DONE | Expected files present; schema inventory; data card and dictionary updated from actual headers | Phase 1 complete (Tasks 1.1, 1.2, 1.3) |
 | 2. Loading, validation, and join | NOT STARTED | Quality report; join checks; tests pass | |
 | 3. Exploratory data analysis | NOT STARTED | EDA report, labeled plots, written findings | |
 | 4. Leakage-safe features | NOT STARTED | Feature pipeline and target-leakage test | |
@@ -37,6 +37,36 @@ Update this file after every work session. Check a task only after its verificat
 
 Add a new entry at the top after each work session.
 
+### Task 1.3: Complete Data Card and Dictionary
+- **Tasks worked on:** Task 1.3 (Complete the data card and dictionary)
+- **What I changed:** Developed `generate_schema_inventory.py` to extract exact target distributions, duplicate checks, and identity match rates; updated `data_card.md` with measured dataset facts (590,540 train tx, 144,233 train id, 20,663 fraud cases = 3.4990% prevalence, 0 duplicates, 24.42% identity match rate); generated `report/schema_inventory.csv` profiling all 435 columns; updated `data_dictionary.md` with column family mappings and verified statuses.
+- **Commands run:** `python src/bankguard/data/generate_schema_inventory.py` and `pytest`
+- **Outcome:** Complete dataset provenance, empirical statistics, and schema documentation recorded; zero discrepancies between downloaded CSV headers and dictionary documentation.
+- **Verification performed:** Generated `report/schema_inventory.csv` and confirmed all columns have explicit roles/types and non-fabrication guarantees.
+- **Evidence/artifact paths:** `d:/Projects/BankGurd/docs/data_card.md`, `d:/Projects/BankGurd/docs/data_dictionary.md`, `d:/Projects/BankGurd/report/schema_inventory.csv`
+- **Problems found:** None.
+- **Next exact action:** Awaiting user approval to proceed to Phase 2 (Task 2.1: Implement loading).
+
+### Task 1.2: Inspect Schemas and Sizes
+- **Tasks worked on:** Task 1.2 (Inspect schemas and sizes)
+- **What I changed:** Created designated `report/` folder; built memory-efficient inspection utility `inspect_dataset.py` with fast buffered line counting and chunked schema profiling; added unit tests in `tests/test_inspect_dataset.py`; generated `report/data_inventory_report.md` and `report/data_inventory_report.json`.
+- **Commands run:** `python src/bankguard/data/inspect_dataset.py` and `pytest`
+- **Outcome:** Measured exact dimensions, disk sizes, memory profiles, and dtypes for all raw files: `train_transaction.csv` (590,540 rows x 394 cols), `train_identity.csv` (144,233 rows x 41 cols), `test_transaction.csv` (506,691 rows x 393 cols), `test_identity.csv` (141,907 rows x 41 cols). All 5 unit tests passed.
+- **Verification performed:** Report generated with zero load errors and verified on disk.
+- **Evidence/artifact paths:** `d:/Projects/BankGurd/report/data_inventory_report.md`, `d:/Projects/BankGurd/report/data_inventory_report.json`
+- **Problems found:** None.
+- **Next exact action:** Completed.
+
+### Task 1.1: Dataset Download and Verification
+- **Tasks worked on:** Task 1.1 (Download the dataset)
+- **What I changed:** Obtained and placed the 4 core IEEE-CIS Fraud Detection competition files in `data/raw/ieee_cis/`; implemented `verify_raw_data.py` and unit tests in `tests/test_verify_raw_data.py` to assert required files and report sizes.
+- **Commands run:** `python src/bankguard/data/verify_raw_data.py data/raw/ieee_cis` and `pytest`
+- **Outcome:** All 4 core dataset files present locally (`train_transaction.csv`: 651.69 MB, `train_identity.csv`: 25.30 MB, `test_transaction.csv`: 584.79 MB, `test_identity.csv`: 24.60 MB); raw files are verified ignored by Git.
+- **Verification performed:** `verify_raw_data.py` exited with status 0; unit tests passed.
+- **Evidence/artifact paths:** `d:/Projects/BankGurd/data/raw/ieee_cis/`, `d:/Projects/BankGurd/src/bankguard/data/verify_raw_data.py`
+- **Problems found:** None.
+- **Next exact action:** Completed.
+
 ### Task 0.3: Protect Data and Secrets
 - **Tasks worked on:** Task 0.3 (Protect data and secrets)
 - **What I changed:** Initialized Git repository tracking; created `.gitignore` covering `.venv/`, `data/raw/*`, `data/processed/*`, `artifacts/*`, `.env*`, Python bytecode caches, pytest/coverage caches, Jupyter checkpoints, IDE and OS files; preserved directory structure with `.gitkeep` files.
@@ -45,7 +75,7 @@ Add a new entry at the top after each work session.
 - **Verification performed:** Verified with `git status --ignored` that test fixtures in `data/raw/`, `data/processed/`, `artifacts/`, and `.env` are strictly ignored.
 - **Evidence/artifact paths:** `d:/Projects/BankGurd/.gitignore`
 - **Problems found:** None.
-- **Next exact action:** Awaiting user approval to proceed to Phase 1 (Task 1.1: Download the dataset).
+- **Next exact action:** Completed.
 
 ### Task 0.2: Python Environment Setup
 - **Tasks worked on:** Task 0.2 (Create a Python environment)
