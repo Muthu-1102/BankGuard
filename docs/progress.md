@@ -4,7 +4,7 @@
 
 Update this file after every work session. Check a task only after its verification step passes. If a task is blocked, write the blocker and the next action. Do not mark tasks complete based on intention alone.
 
-**Current status:** Phase 2 in progress (Tasks 2.1 & 2.2 completed)  
+**Current status:** Phase 2 complete  
 **Dataset decision:** IEEE-CIS Fraud Detection Kaggle competition dataset  
 **Data policy:** Public competition data; no synthetic replacement  
 **Last updated:** In progress
@@ -22,7 +22,7 @@ Update this file after every work session. Check a task only after its verificat
 |---|---|---|---|
 | 0. Repository and environment | DONE | Folder tree, working environment, `.gitignore` checked | Phase 0 complete (Tasks 0.1, 0.2, 0.3) |
 | 1. Dataset download and documentation | DONE | Expected files present; schema inventory; data card and dictionary updated from actual headers | Phase 1 complete (Tasks 1.1, 1.2, 1.3) |
-| 2. Loading, validation, and join | IN PROGRESS | Quality report; join checks; tests pass | Tasks 2.1 & 2.2 complete |
+| 2. Loading, validation, and join | DONE | Quality report; join checks; tests pass | Phase 2 complete (Tasks 2.1, 2.2, 2.3) |
 | 3. Exploratory data analysis | NOT STARTED | EDA report, labeled plots, written findings | |
 | 4. Leakage-safe features | NOT STARTED | Feature pipeline and target-leakage test | |
 | 5. Baseline and improved model | NOT STARTED | Saved predictions, metrics, model settings | |
@@ -37,6 +37,15 @@ Update this file after every work session. Check a task only after its verificat
 
 Add a new entry at the top after each work session.
 
+### Task 2.3: Join Identity Fields
+- **Tasks worked on:** Task 2.3 (Join identity fields)
+- **What I changed:** Developed `src/bankguard/data/join.py` implementing `safe_join_transaction_identity` with pre-join cardinality checks, post-join assertions, and metric tracking; added unit tests in `tests/test_join.py`; executed join on full training data (590,540 tx, 144,233 id) in 0.99s.
+- **Commands run:** `python src/bankguard/data/join.py` and `pytest`
+- **Outcome:** Primary key uniqueness guaranteed; joined row count exactly preserved (590,540 rows x 434 columns); identity match rate measured at 24.42%; generated `report/join_report.md` and `report/join_report.json`. All 30 unit tests passed.
+- **Evidence/artifact paths:** `d:/Projects/BankGurd/report/join_report.md`, `d:/Projects/BankGurd/report/join_report.json`, `d:/Projects/BankGurd/src/bankguard/data/join.py`
+- **Problems found:** None.
+- **Next exact action:** Awaiting user approval to proceed to Phase 3 (Task 3.1: Understand the target).
+
 ### Task 2.2: Implement Quality Checks
 - **Tasks worked on:** Task 2.2 (Implement quality checks)
 - **What I changed:** Developed modular validation functions in `src/bankguard/data/quality_checks.py` (`check_required_columns`, `check_key_uniqueness`, `check_target_validity`, `check_numeric_ranges`, `check_null_patterns`, `run_data_quality_suite`); wrote runner `src/bankguard/data/run_quality_report.py`; added comprehensive unit tests in `tests/test_quality_checks.py` asserting pass on valid fixtures and explicit failures on deliberately invalid fixtures.
@@ -44,7 +53,7 @@ Add a new entry at the top after each work session.
 - **Outcome:** Full validation suite executed on raw training data (590,540 tx, 144,233 id) passing 8 of 8 checks with 0 critical failures; generated `report/data_quality_report.md` and `report/data_quality_report.json`. All 24 unit tests passed.
 - **Evidence/artifact paths:** `d:/Projects/BankGurd/report/data_quality_report.md`, `d:/Projects/BankGurd/report/data_quality_report.json`, `d:/Projects/BankGurd/src/bankguard/data/quality_checks.py`
 - **Problems found:** None.
-- **Next exact action:** Awaiting user approval to proceed to Task 2.3 (Join identity fields).
+- **Next exact action:** Completed.
 
 ### Task 2.1: Implement Loading
 - **Tasks worked on:** Task 2.1 (Implement loading)

@@ -1,0 +1,12 @@
+{
+  "transaction_rows": 590540,
+  "identity_rows": 144233,
+  "joined_rows": 590540,
+  "identity_matches": 144233,
+  "identity_match_rate_pct": 24.42,
+  "unmatched_transactions": 446307,
+  "transaction_cols": 394,
+  "identity_cols": 41,
+  "joined_cols": 434,
+  "elapsed_seconds": 0.99
+}
