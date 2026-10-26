@@ -1,0 +1,479 @@
+{
+  "amount_statistics": {
+    "overall": {
+      "count": 590540,
+      "min": 0.251,
+      "max": 31937.3906,
+      "mean": 135.0272,
+      "std": 239.1625,
+      "median": 68.769,
+      "q25": 43.321,
+      "q75": 125.0,
+      "iqr": 81.679,
+      "skewness": 14.3745,
+      "p90": 275.293,
+      "p95": 445.0,
+      "p99": 1104.0,
+      "p999": 2769.8073
+    },
+    "legitimate": {
+      "count": 569877,
+      "min": 0.251,
+      "max": 31937.3906,
+      "mean": 134.5117,
+      "std": 239.3951,
+      "median": 68.5,
+      "q25": 43.97,
+      "q75": 120.0,
+      "iqr": 76.03,
+      "skewness": 14.6719,
+      "p90": 267.112,
+      "p95": 435.0,
+      "p99": 1104.0,
+      "p999": 2775.3807
+    },
+    "fraud": {
+      "count": 20663,
+      "min": 0.292,
+      "max": 5191.0,
+      "mean": 149.2448,
+      "std": 232.2122,
+      "median": 75.0,
+      "q25": 35.044,
+      "q75": 161.0,
+      "iqr": 125.956,
+      "skewness": 5.463,
+      "p90": 335.0,
+      "p95": 500.0,
+      "p99": 994.0,
+      "p999": 2680.3346
+    },
+    "decimal_cents_analysis": {
+      "fractional_amount_count": 285527,
+      "fractional_amount_pct": 48.35,
+      "fractional_fraud_rate_pct": 3.43,
+      "round_amount_count": 305013,
+      "round_amount_pct": 51.65,
+      "round_fraud_rate_pct": 3.57
+    }
+  },
+  "time_statistics": {
+    "min_timestamp_sec": 86400,
+    "max_timestamp_sec": 15811131,
+    "time_span_seconds": 15724731,
+    "time_span_days": 182.0,
+    "is_monotonic_increasing": true,
+    "hourly_breakdown": [
+      {
+        "hour_proxy": 0,
+        "transaction_count": 37795,
+        "fraud_count": 1186,
+        "fraud_rate_pct": 3.138
+      },
+      {
+        "hour_proxy": 1,
+        "transaction_count": 32797,
+        "fraud_count": 1027,
+        "fraud_rate_pct": 3.131
+      },
+      {
+        "hour_proxy": 2,
+        "transaction_count": 26732,
+        "fraud_count": 1002,
+        "fraud_rate_pct": 3.748
+      },
+      {
+        "hour_proxy": 3,
+        "transaction_count": 20802,
+        "fraud_count": 797,
+        "fraud_rate_pct": 3.831
+      },
+      {
+        "hour_proxy": 4,
+        "transaction_count": 14839,
+        "fraud_count": 770,
+        "fraud_rate_pct": 5.189
+      },
+      {
+        "hour_proxy": 5,
+        "transaction_count": 9701,
+        "fraud_count": 682,
+        "fraud_rate_pct": 7.03
+      },
+      {
+        "hour_proxy": 6,
+        "transaction_count": 6007,
+        "fraud_count": 467,
+        "fraud_rate_pct": 7.774
+      },
+      {
+        "hour_proxy": 7,
+        "transaction_count": 3704,
+        "fraud_count": 393,
+        "fraud_rate_pct": 10.61
+      },
+      {
+        "hour_proxy": 8,
+        "transaction_count": 2591,
+        "fraud_count": 241,
+        "fraud_rate_pct": 9.301
+      },
+      {
+        "hour_proxy": 9,
+        "transaction_count": 2479,
+        "fraud_count": 223,
+        "fraud_rate_pct": 8.996
+      },
+      {
+        "hour_proxy": 10,
+        "transaction_count": 3627,
+        "fraud_count": 193,
+        "fraud_rate_pct": 5.321
+      },
+      {
+        "hour_proxy": 11,
+        "transaction_count": 6827,
+        "fraud_count": 265,
+        "fraud_rate_pct": 3.882
+      },
+      {
+        "hour_proxy": 12,
+        "transaction_count": 12451,
+        "fraud_count": 379,
+        "fraud_rate_pct": 3.044
+      },
+      {
+        "hour_proxy": 13,
+        "transaction_count": 20315,
+        "fraud_count": 465,
+        "fraud_rate_pct": 2.289
+      },
+      {
+        "hour_proxy": 14,
+        "transaction_count": 28328,
+        "fraud_count": 686,
+        "fraud_rate_pct": 2.422
+      },
+      {
+        "hour_proxy": 15,
+        "transaction_count": 33859,
+        "fraud_count": 860,
+        "fraud_rate_pct": 2.54
+      },
+      {
+        "hour_proxy": 16,
+        "transaction_count": 38698,
+        "fraud_count": 1142,
+        "fraud_rate_pct": 2.951
+      },
+      {
+        "hour_proxy": 17,
+        "transaction_count": 40723,
+        "fraud_count": 1284,
+        "fraud_rate_pct": 3.153
+      },
+      {
+        "hour_proxy": 18,
+        "transaction_count": 41639,
+        "fraud_count": 1467,
+        "fraud_rate_pct": 3.523
+      },
+      {
+        "hour_proxy": 19,
+        "transaction_count": 42115,
+        "fraud_count": 1463,
+        "fraud_rate_pct": 3.474
+      },
+      {
+        "hour_proxy": 20,
+        "transaction_count": 41782,
+        "fraud_count": 1432,
+        "fraud_rate_pct": 3.427
+      },
+      {
+        "hour_proxy": 21,
+        "transaction_count": 41641,
+        "fraud_count": 1416,
+        "fraud_rate_pct": 3.4
+      },
+      {
+        "hour_proxy": 22,
+        "transaction_count": 41139,
+        "fraud_count": 1345,
+        "fraud_rate_pct": 3.269
+      },
+      {
+        "hour_proxy": 23,
+        "transaction_count": 39949,
+        "fraud_count": 1478,
+        "fraud_rate_pct": 3.7
+      }
+    ],
+    "daily_breakdown": [
+      {
+        "day_proxy": 0,
+        "transaction_count": 86377,
+        "fraud_count": 3211,
+        "fraud_rate_pct": 3.717
+      },
+      {
+        "day_proxy": 1,
+        "transaction_count": 98502,
+        "fraud_count": 3550,
+        "fraud_rate_pct": 3.604
+      },
+      {
+        "day_proxy": 2,
+        "transaction_count": 79834,
+        "fraud_count": 2963,
+        "fraud_rate_pct": 3.711
+      },
+      {
+        "day_proxy": 3,
+        "transaction_count": 70223,
+        "fraud_count": 2503,
+        "fraud_rate_pct": 3.564
+      },
+      {
+        "day_proxy": 4,
+        "transaction_count": 85433,
+        "fraud_count": 2687,
+        "fraud_rate_pct": 3.145
+      },
+      {
+        "day_proxy": 5,
+        "transaction_count": 84815,
+        "fraud_count": 2803,
+        "fraud_rate_pct": 3.305
+      },
+      {
+        "day_proxy": 6,
+        "transaction_count": 85356,
+        "fraud_count": 2946,
+        "fraud_rate_pct": 3.451
+      }
+    ],
+    "temporal_drift": [
+      {
+        "window_index": 0,
+        "window_label": "Day 0 to 30",
+        "transaction_count": 134339,
+        "fraud_count": 3401,
+        "fraud_rate_pct": 2.532
+      },
+      {
+        "window_index": 1,
+        "window_label": "Day 30 to 60",
+        "transaction_count": 89399,
+        "fraud_count": 3577,
+        "fraud_rate_pct": 4.001
+      },
+      {
+        "window_index": 2,
+        "window_label": "Day 60 to 90",
+        "transaction_count": 92189,
+        "fraud_count": 3724,
+        "fraud_rate_pct": 4.04
+      },
+      {
+        "window_index": 3,
+        "window_label": "Day 90 to 120",
+        "transaction_count": 98615,
+        "fraud_count": 3898,
+        "fraud_rate_pct": 3.953
+      },
+      {
+        "window_index": 4,
+        "window_label": "Day 120 to 150",
+        "transaction_count": 83571,
+        "fraud_count": 2850,
+        "fraud_rate_pct": 3.41
+      },
+      {
+        "window_index": 5,
+        "window_label": "Day 150 to 180",
+        "transaction_count": 86934,
+        "fraud_count": 2972,
+        "fraud_rate_pct": 3.419
+      },
+      {
+        "window_index": 6,
+        "window_label": "Day 180 to 182",
+        "transaction_count": 5493,
+        "fraud_count": 241,
+        "fraud_rate_pct": 4.387
+      }
+    ]
+  },
+  "categorical_statistics": {
+    "ProductCD": [
+      {
+        "category": "W",
+        "count": 439670,
+        "pct_volume": 74.45,
+        "fraud_count": 8969,
+        "fraud_rate_pct": 2.04
+      },
+      {
+        "category": "C",
+        "count": 68519,
+        "pct_volume": 11.6,
+        "fraud_count": 8008,
+        "fraud_rate_pct": 11.69
+      },
+      {
+        "category": "R",
+        "count": 37699,
+        "pct_volume": 6.38,
+        "fraud_count": 1426,
+        "fraud_rate_pct": 3.78
+      },
+      {
+        "category": "H",
+        "count": 33024,
+        "pct_volume": 5.59,
+        "fraud_count": 1574,
+        "fraud_rate_pct": 4.77
+      },
+      {
+        "category": "S",
+        "count": 11628,
+        "pct_volume": 1.97,
+        "fraud_count": 686,
+        "fraud_rate_pct": 5.9
+      }
+    ],
+    "card4": [
+      {
+        "category": "visa",
+        "count": 384767,
+        "pct_volume": 65.16,
+        "fraud_count": 13373,
+        "fraud_rate_pct": 3.48
+      },
+      {
+        "category": "mastercard",
+        "count": 189217,
+        "pct_volume": 32.04,
+        "fraud_count": 6496,
+        "fraud_rate_pct": 3.43
+      },
+      {
+        "category": "american express",
+        "count": 8328,
+        "pct_volume": 1.41,
+        "fraud_count": 239,
+        "fraud_rate_pct": 2.87
+      },
+      {
+        "category": "discover",
+        "count": 6651,
+        "pct_volume": 1.13,
+        "fraud_count": 514,
+        "fraud_rate_pct": 7.73
+      },
+      {
+        "category": "<MISSING>",
+        "count": 1577,
+        "pct_volume": 0.27,
+        "fraud_count": 41,
+        "fraud_rate_pct": 2.6
+      }
+    ],
+    "card6": [
+      {
+        "category": "debit",
+        "count": 439938,
+        "pct_volume": 74.5,
+        "fraud_count": 10674,
+        "fraud_rate_pct": 2.43
+      },
+      {
+        "category": "credit",
+        "count": 148986,
+        "pct_volume": 25.23,
+        "fraud_count": 9950,
+        "fraud_rate_pct": 6.68
+      },
+      {
+        "category": "<MISSING>",
+        "count": 1571,
+        "pct_volume": 0.27,
+        "fraud_count": 39,
+        "fraud_rate_pct": 2.48
+      },
+      {
+        "category": "debit or credit",
+        "count": 30,
+        "pct_volume": 0.01,
+        "fraud_count": 0,
+        "fraud_rate_pct": 0.0
+      },
+      {
+        "category": "charge card",
+        "count": 15,
+        "pct_volume": 0.0,
+        "fraud_count": 0,
+        "fraud_rate_pct": 0.0
+      }
+    ],
+    "P_emaildomain": [
+      {
+        "category": "gmail.com",
+        "count": 228355,
+        "pct_volume": 38.67,
+        "fraud_count": 9943,
+        "fraud_rate_pct": 4.35
+      },
+      {
+        "category": "yahoo.com",
+        "count": 100934,
+        "pct_volume": 17.09,
+        "fraud_count": 2297,
+        "fraud_rate_pct": 2.28
+      },
+      {
+        "category": "<MISSING>",
+        "count": 94456,
+        "pct_volume": 15.99,
+        "fraud_count": 2790,
+        "fraud_rate_pct": 2.95
+      },
+      {
+        "category": "hotmail.com",
+        "count": 45250,
+        "pct_volume": 7.66,
+        "fraud_count": 2396,
+        "fraud_rate_pct": 5.3
+      },
+      {
+        "category": "anonymous.com",
+        "count": 36998,
+        "pct_volume": 6.27,
+        "fraud_count": 859,
+        "fraud_rate_pct": 2.32
+      },
+      {
+        "category": "aol.com",
+        "count": 28289,
+        "pct_volume": 4.79,
+        "fraud_count": 617,
+        "fraud_rate_pct": 2.18
+      },
+      {
+        "category": "comcast.net",
+        "count": 7888,
+        "pct_volume": 1.34,
+        "fraud_count": 246,
+        "fraud_rate_pct": 3.12
+      },
+      {
+        "category": "icloud.com",
+        "count": 6267,
+        "pct_volume": 1.06,
+        "fraud_count": 197,
+        "fraud_rate_pct": 3.14
+      }
+    ]
+  }
+}

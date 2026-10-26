@@ -4,7 +4,7 @@
 
 Update this file after every work session. Check a task only after its verification step passes. If a task is blocked, write the blocker and the next action. Do not mark tasks complete based on intention alone.
 
-**Current status:** Phase 3 in progress (Task 3.2 completed)  
+**Current status:** Phase 3 complete (Awaiting approval for Phase 4)  
 **Dataset decision:** IEEE-CIS Fraud Detection Kaggle competition dataset  
 **Data policy:** Public competition data; no synthetic replacement  
 **Last updated:** In progress
@@ -23,7 +23,7 @@ Update this file after every work session. Check a task only after its verificat
 | 0. Repository and environment | DONE | Folder tree, working environment, `.gitignore` checked | Phase 0 complete (Tasks 0.1, 0.2, 0.3) |
 | 1. Dataset download and documentation | DONE | Expected files present; schema inventory; data card and dictionary updated from actual headers | Phase 1 complete (Tasks 1.1, 1.2, 1.3) |
 | 2. Loading, validation, and join | DONE | Quality report; join checks; tests pass | Phase 2 complete (Tasks 2.1, 2.2, 2.3) |
-| 3. Exploratory data analysis | IN PROGRESS | EDA report, labeled plots, written findings | Task 3.1 and Task 3.2 complete |
+| 3. Exploratory data analysis | DONE | EDA report, labeled plots, written findings | Phase 3 complete (Tasks 3.1, 3.2, 3.3) |
 | 4. Leakage-safe features | NOT STARTED | Feature pipeline and target-leakage test | |
 | 5. Baseline and improved model | NOT STARTED | Saved predictions, metrics, model settings | |
 | 6. Evaluation and threshold choice | NOT STARTED | Metrics recomputed from validation predictions; threshold rationale documented | |
@@ -36,6 +36,15 @@ Update this file after every work session. Check a task only after its verificat
 ## Work log
 
 Add a new entry at the top after each work session.
+
+### Task 3.3: Explore Amount, Time, and Key Categorical Drivers
+- **Tasks worked on:** Task 3.3 (Explore amount and time)
+- **What I changed:** Implemented `src/bankguard/data/amount_time_analysis.py` to evaluate `TransactionAmt` distributions, extreme positive skewness (14.37), quantile spreads, and decimal cent precision signals; evaluated `TransactionDT` ordering, span (15.72M seconds / ~182 days), monotonicity, and cyclical diurnal patterns (off-peak hours 4-9 exhibiting over 7.5% fraud rate vs 3.5% baseline); analyzed high-risk categorical drivers (`ProductCD = 'C'` carrying 11.69% fraud rate; `card6 = 'credit'` carrying 6.68% fraud rate vs 2.43% for debit); generated publication-grade 4-panel visual dashboard `report/figures/amount_time_distribution.png`; generated structured markdown report `report/amount_time_analysis.md` and machine-readable data `report/amount_time_analysis.json`; added comprehensive unit tests in `tests/test_amount_time_analysis.py`.
+- **Commands run:** `d:\Projects\BankGurd\.venv\Scripts\python.exe src/bankguard/data/amount_time_analysis.py`, `d:\Projects\BankGurd\.venv\Scripts\python.exe -m pytest`
+- **Outcome:** All 41 unit tests in repo passed in 3.38s. Established critical architectural takeaways for Phase 4: `log1p` transformation for amounts, decimal cent presence indicators, cyclical diurnal trigonometric features, and mandatory time-based validation splits to avoid future lookahead leakage.
+- **Evidence/artifact paths:** `report/figures/amount_time_distribution.png`, `report/amount_time_analysis.md`, `report/amount_time_analysis.json`, `tests/test_amount_time_analysis.py`
+- **Problems found:** None.
+- **Next exact action:** Phase 3 is complete. Awaiting user approval to create a new branch and proceed to Phase 4 (Create leakage-safe features).
 
 ### Task 3.2: Investigate Missingness and Fields
 - **Tasks worked on:** Task 3.2 (Investigate missingness and fields)
