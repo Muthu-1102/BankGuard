@@ -4,7 +4,7 @@
 
 Update this file after every work session. Check a task only after its verification step passes. If a task is blocked, write the blocker and the next action. Do not mark tasks complete based on intention alone.
 
-**Current status:** Phase 5 in progress (Task 5.1 completed)  
+**Current status:** Phase 5 in progress (Tasks 5.1 and 5.2 completed)  
 **Dataset decision:** IEEE-CIS Fraud Detection Kaggle competition dataset  
 **Data policy:** Public competition data; no synthetic replacement  
 **Last updated:** In progress
@@ -25,7 +25,7 @@ Update this file after every work session. Check a task only after its verificat
 | 2. Loading, validation, and join | DONE | Quality report; join checks; tests pass | Phase 2 complete (Tasks 2.1, 2.2, 2.3) |
 | 3. Exploratory data analysis | DONE | EDA report, labeled plots, written findings | Phase 3 complete (Tasks 3.1, 3.2, 3.3) |
 | 4. Leakage-safe features | DONE | Feature pipeline and target-leakage test | Phase 4 complete (Tasks 4.1, 4.2, 4.3) |
-| 5. Baseline and improved model | IN PROGRESS | Saved predictions, metrics, model settings | Task 5.1 complete |
+| 5. Baseline and improved model | IN PROGRESS | Saved predictions, metrics, model settings | Tasks 5.1 and 5.2 complete |
 | 6. Evaluation and threshold choice | NOT STARTED | Metrics recomputed from validation predictions; threshold rationale documented | |
 | 7. Explainability | NOT STARTED | Explanation examples and limitations documented | |
 | 8. Decision policy and API | NOT STARTED | Unit/API tests and working health/prediction endpoints | |
@@ -36,6 +36,15 @@ Update this file after every work session. Check a task only after its verificat
 ## Work log
 
 Add a new entry at the top after each work session.
+
+### Task 5.2: Train an Improved Model (LightGBM) and Compare with Baseline
+- **Tasks worked on:** Task 5.2 (Train an improved model)
+- **What I changed:** Integrated LightGBM 4.7.0 into environment and `requirements.txt`; implemented `src/bankguard/models/improved.py` providing reproducible gradient boosted decision tree training (`n_estimators=300`, `learning_rate=0.05`, `num_leaves=63`, `max_depth=10`, `subsample=0.8`, `colsample_bytree=0.8`, `min_child_samples=50`, `random_state=42`); trained on 472,432 chronologically partitioned training rows x 438 features (`scale_numeric=False`); evaluated on the exact same 118,108 out-of-time validation transactions as Task 5.1; updated `src/bankguard/models/metrics.py` with `compare_model_metrics()` and `format_comparison_markdown()`; extracted total gain and split feature importances (`improved_feature_importances.csv`); achieved PR-AUC of 0.5598 (+294.2% relative gain vs baseline 0.1420), ROC-AUC of 0.9136 (+16.5% vs baseline 0.7844), Brier calibration score of 0.0212 (-87.6% error reduction vs baseline 0.1716), and log loss of 0.0867 (-86.0% error reduction vs baseline 0.6191); false positive rate dropped from 16.23% to 0.30% (false positives reduced from 18,507 down to 339); saved model artifact to `artifacts/improved_model.joblib`; saved validation predictions to `artifacts/improved_predictions.npz`; generated `report/improved_metrics.md`, `report/improved_metrics.json`, `report/model_comparison.md`, and `report/model_comparison.json`; added comprehensive unit tests in `tests/test_improved.py`.
+- **Commands run:** `pip install lightgbm`, `d:\Projects\BankGurd\.venv\Scripts\python.exe src/bankguard/models/improved.py`, `d:\Projects\BankGurd\.venv\Scripts\python.exe -m pytest`
+- **Outcome:** All 76 unit tests in repository passed in 9.64s. LightGBM dramatically outperforms linear baseline across discrimination and probability calibration on identical validation transactions.
+- **Evidence/artifact paths:** `src/bankguard/models/improved.py`, `src/bankguard/models/metrics.py`, `artifacts/improved_model.joblib`, `artifacts/improved_predictions.npz`, `artifacts/improved_feature_importances.csv`, `report/improved_metrics.md`, `report/improved_metrics.json`, `report/model_comparison.md`, `report/model_comparison.json`, `tests/test_improved.py`
+- **Problems found:** None.
+- **Next exact action:** Awaiting user approval to proceed to Task 5.3 (Evaluate threshold choices).
 
 ### Task 5.1: Create a Baseline Model and Evaluate
 - **Tasks worked on:** Task 5.1 (Create a baseline)

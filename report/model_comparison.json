@@ -1,0 +1,78 @@
+{
+  "baseline_name": "Baseline (LogisticRegression)",
+  "candidate_name": "Improved (LightGBM)",
+  "metrics": {
+    "pr_auc": {
+      "label": "PR-AUC (Average Precision)",
+      "baseline": 0.142,
+      "candidate": 0.5598,
+      "diff": 0.4178,
+      "pct_change": 294.23,
+      "higher_is_better": true,
+      "is_improvement": true
+    },
+    "roc_auc": {
+      "label": "ROC-AUC Score",
+      "baseline": 0.7844,
+      "candidate": 0.91357,
+      "diff": 0.12917,
+      "pct_change": 16.47,
+      "higher_is_better": true,
+      "is_improvement": true
+    },
+    "brier_score": {
+      "label": "Brier Score",
+      "baseline": 0.17165,
+      "candidate": 0.02121,
+      "diff": -0.15044,
+      "pct_change": -87.64,
+      "higher_is_better": false,
+      "is_improvement": true
+    },
+    "log_loss": {
+      "label": "Log Loss",
+      "baseline": 0.61914,
+      "candidate": 0.08674,
+      "diff": -0.5324,
+      "pct_change": -85.99,
+      "higher_is_better": false,
+      "is_improvement": true
+    },
+    "precision": {
+      "label": "Precision @ Threshold",
+      "baseline": 0.12031,
+      "candidate": 0.81072,
+      "diff": 0.69041,
+      "pct_change": 573.86,
+      "higher_is_better": true,
+      "is_improvement": true
+    },
+    "recall": {
+      "label": "Recall @ Threshold",
+      "baseline": 0.62279,
+      "candidate": 0.35728,
+      "diff": -0.26551,
+      "pct_change": -42.63,
+      "higher_is_better": true,
+      "is_improvement": false
+    },
+    "f1_score": {
+      "label": "F1 Score @ Threshold",
+      "baseline": 0.20166,
+      "candidate": 0.49599,
+      "diff": 0.29433,
+      "pct_change": 145.95,
+      "higher_is_better": true,
+      "is_improvement": true
+    },
+    "specificity": {
+      "label": "Specificity @ Threshold",
+      "baseline": 0.83772,
+      "candidate": 0.99703,
+      "diff": 0.15931,
+      "pct_change": 19.02,
+      "higher_is_better": true,
+      "is_improvement": true
+    }
+  }
+}

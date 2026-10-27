@@ -178,3 +178,82 @@ def save_metrics_report(
         f.write(format_metrics_markdown(metrics, model_title=model_name.replace("_", " ").title()))
 
     return json_path, md_path
+
+
+def compare_model_metrics(
+    baseline_metrics: Dict[str, Any],
+    candidate_metrics: Dict[str, Any],
+    baseline_name: str = "Baseline (LogisticRegression)",
+    candidate_name: str = "Improved (LightGBM)",
+) -> Dict[str, Any]:
+    """Compares baseline and candidate model metrics, computing absolute and relative differences.
+
+    Args:
+        baseline_metrics: Metrics dictionary from baseline model.
+        candidate_metrics: Metrics dictionary from candidate model.
+        baseline_name: Display label for baseline model.
+        candidate_name: Display label for candidate model.
+
+    Returns:
+        Structured comparison dictionary.
+    """
+    comparisons = {}
+    keys_to_compare = [
+        ("pr_auc", "PR-AUC (Average Precision)", True),
+        ("roc_auc", "ROC-AUC Score", True),
+        ("brier_score", "Brier Score", False),
+        ("log_loss", "Log Loss", False),
+        ("precision", "Precision @ Threshold", True),
+        ("recall", "Recall @ Threshold", True),
+        ("f1_score", "F1 Score @ Threshold", True),
+        ("specificity", "Specificity @ Threshold", True),
+    ]
+
+    for key, label, higher_is_better in keys_to_compare:
+        base_val = baseline_metrics.get(key)
+        cand_val = candidate_metrics.get(key)
+        if base_val is not None and cand_val is not None:
+            diff = float(cand_val - base_val)
+            pct_change = (diff / float(base_val) * 100.0) if base_val != 0 else 0.0
+            is_improvement = (diff > 0) if higher_is_better else (diff < 0)
+            comparisons[key] = {
+                "label": label,
+                "baseline": round(float(base_val), 5),
+                "candidate": round(float(cand_val), 5),
+                "diff": round(diff, 5),
+                "pct_change": round(pct_change, 2),
+                "higher_is_better": higher_is_better,
+                "is_improvement": is_improvement,
+            }
+
+    return {
+        "baseline_name": baseline_name,
+        "candidate_name": candidate_name,
+        "metrics": comparisons,
+    }
+
+
+def format_comparison_markdown(comparison: Dict[str, Any]) -> str:
+    """Formats comparison dictionary into a markdown comparison table."""
+    base_name = comparison["baseline_name"]
+    cand_name = comparison["candidate_name"]
+    metrics_data = comparison["metrics"]
+
+    rows = []
+    for key, data in metrics_data.items():
+        base_str = f"{data['baseline']:.4f}"
+        cand_str = f"{data['candidate']:.4f}"
+        diff_str = f"{data['diff']:+.4f}"
+        pct_sign = "+" if data['pct_change'] > 0 else ""
+        pct_str = f"{pct_sign}{data['pct_change']:.1f}%"
+        status = "[+] Improved" if data['is_improvement'] else "[-] Regressed"
+        rows.append(f"| **{data['label']}** | {base_str} | {cand_str} | {diff_str} | {pct_str} | {status} |")
+
+    table_rows = "\n".join(rows)
+
+    return f"""### Model Comparison: {base_name} vs {cand_name}
+
+| Evaluation Metric | {base_name} | {cand_name} | Absolute Delta | Relative Change | Outcome |
+|---|---:|---:|---:|---:|:---:|
+{table_rows}
+"""
