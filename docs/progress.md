@@ -4,7 +4,7 @@
 
 Update this file after every work session. Check a task only after its verification step passes. If a task is blocked, write the blocker and the next action. Do not mark tasks complete based on intention alone.
 
-**Current status:** Phase 5 in progress (Tasks 5.1, 5.2, and 5.3 completed)  
+**Current status:** Phase 5 complete (Tasks 5.1, 5.2, 5.3, 5.4 completed)  
 **Dataset decision:** IEEE-CIS Fraud Detection Kaggle competition dataset  
 **Data policy:** Public competition data; no synthetic replacement  
 **Last updated:** In progress
@@ -25,17 +25,22 @@ Update this file after every work session. Check a task only after its verificat
 | 2. Loading, validation, and join | DONE | Quality report; join checks; tests pass | Phase 2 complete (Tasks 2.1, 2.2, 2.3) |
 | 3. Exploratory data analysis | DONE | EDA report, labeled plots, written findings | Phase 3 complete (Tasks 3.1, 3.2, 3.3) |
 | 4. Leakage-safe features | DONE | Feature pipeline and target-leakage test | Phase 4 complete (Tasks 4.1, 4.2, 4.3) |
-| 5. Baseline and improved model | IN PROGRESS | Saved predictions, metrics, model settings | Tasks 5.1, 5.2, and 5.3 complete |
-| 6. Evaluation and threshold choice | NOT STARTED | Metrics recomputed from validation predictions; threshold rationale documented | |
-| 7. Explainability | NOT STARTED | Explanation examples and limitations documented | |
-| 8. Decision policy and API | NOT STARTED | Unit/API tests and working health/prediction endpoints | |
-| 9. Dashboard | NOT STARTED | UI launches and metrics match saved evaluation | |
-| 10. Monitoring, tests, CI, Docker | NOT STARTED | Test suite, CI run, container health check | |
-| 11. Final review | NOT STARTED | Clean setup verified by following README from scratch | |
+| 5. Train and compare models | DONE | Saved predictions, metrics, threshold analysis, SHAP explanations | Phase 5 complete (Tasks 5.1, 5.2, 5.3, 5.4) |
+| 6. Turn scores into a usable demo | NOT STARTED | Decision policy, FastAPI serving endpoint, Streamlit dashboard | Ready for Phase 6 |
+| 7. Reliability and delivery | NOT STARTED | Test suite, CI workflow, containerization, final review | |
 
 ## Work log
 
 Add a new entry at the top after each work session.
+
+### Task 5.4: Add Model Explanations (TreeSHAP)
+- **Tasks worked on:** Task 5.4 (Add explanations)
+- **What I changed:** Integrated `shap>=0.45.0` into `.venv` and `requirements.txt`; implemented `src/bankguard/models/explainability.py` providing global and local model explanations using `shap.TreeExplainer`; computed global mean absolute SHAP values across 2,000 out-of-time validation transactions (`C13`, `TransactionAmt`, `C14`, `card6`, `card2`, `V70`, `V91` identified as top global signals); generated publication visual artifacts `report/shap_summary.png` (global feature attributions) and `report/shap_local_waterfall.png` (individual transaction attribution waterfall); implemented `explain_single_prediction()` returning calibrated risk tiers, positive risk drivers, and negative protective factors; generated structured benchmark examples across 5 transaction archetypes (True Positive High-Confidence Fraud, Suspicious Review, False Positive Challenged, Clean Benign Auto-Approved, False Negative Missed Fraud) saved to `artifacts/explanation_examples.json`; added strict causation disclaimers to code and reports; generated `report/model_explainability.md` and `report/model_explainability.json`; added comprehensive unit tests in `tests/test_explainability.py`.
+- **Commands run:** `d:\Projects\BankGurd\.venv\Scripts\python.exe src/bankguard/models/explainability.py`, `d:\Projects\BankGurd\.venv\Scripts\python.exe -m pytest`
+- **Outcome:** All 88 unit tests in repository passed in 36.69s. Explanations run for multiple validation records, are labeled as statistical associations rather than real-world causation, and are structured into dashboard-ready payloads. Phase 5 is fully complete.
+- **Evidence/artifact paths:** `src/bankguard/models/explainability.py`, `tests/test_explainability.py`, `artifacts/explanation_examples.json`, `report/shap_summary.png`, `report/shap_local_waterfall.png`, `report/model_explainability.md`, `report/model_explainability.json`
+- **Problems found:** None.
+- **Next exact action:** Phase 5 is complete. Awaiting user approval to create a new branch (`feature/phase-6-serving`) and proceed to Phase 6 (Turn scores into a usable demo).
 
 ### Task 5.3: Evaluate Decision Threshold Choices and Operational Trade-offs
 - **Tasks worked on:** Task 5.3 (Evaluate threshold choices)
