@@ -4,7 +4,7 @@
 
 Update this file after every work session. Check a task only after its verification step passes. If a task is blocked, write the blocker and the next action. Do not mark tasks complete based on intention alone.
 
-**Current status:** Phase 5 in progress (Tasks 5.1 and 5.2 completed)  
+**Current status:** Phase 5 in progress (Tasks 5.1, 5.2, and 5.3 completed)  
 **Dataset decision:** IEEE-CIS Fraud Detection Kaggle competition dataset  
 **Data policy:** Public competition data; no synthetic replacement  
 **Last updated:** In progress
@@ -25,7 +25,7 @@ Update this file after every work session. Check a task only after its verificat
 | 2. Loading, validation, and join | DONE | Quality report; join checks; tests pass | Phase 2 complete (Tasks 2.1, 2.2, 2.3) |
 | 3. Exploratory data analysis | DONE | EDA report, labeled plots, written findings | Phase 3 complete (Tasks 3.1, 3.2, 3.3) |
 | 4. Leakage-safe features | DONE | Feature pipeline and target-leakage test | Phase 4 complete (Tasks 4.1, 4.2, 4.3) |
-| 5. Baseline and improved model | IN PROGRESS | Saved predictions, metrics, model settings | Tasks 5.1 and 5.2 complete |
+| 5. Baseline and improved model | IN PROGRESS | Saved predictions, metrics, model settings | Tasks 5.1, 5.2, and 5.3 complete |
 | 6. Evaluation and threshold choice | NOT STARTED | Metrics recomputed from validation predictions; threshold rationale documented | |
 | 7. Explainability | NOT STARTED | Explanation examples and limitations documented | |
 | 8. Decision policy and API | NOT STARTED | Unit/API tests and working health/prediction endpoints | |
@@ -36,6 +36,15 @@ Update this file after every work session. Check a task only after its verificat
 ## Work log
 
 Add a new entry at the top after each work session.
+
+### Task 5.3: Evaluate Decision Threshold Choices and Operational Trade-offs
+- **Tasks worked on:** Task 5.3 (Evaluate threshold choices)
+- **What I changed:** Implemented `src/bankguard/models/threshold_tuning.py` providing `evaluate_threshold_grid()`, `find_optimal_thresholds()`, `plot_threshold_curves()`, and `run_threshold_evaluation_pipeline()`; recomputed classification metrics and business costs from saved validation predictions in `artifacts/improved_predictions.npz` and `artifacts/baseline_predictions.npz` across 30 fine-grained decision thresholds; modeled multiple operational objectives (Max F1 = 0.5396 at $\tau=0.25$, Capacity-Constrained $\le 3.0\%$ queue load at $\tau=0.22$, Target Recall $\ge 70\%$ at $\tau=0.06$, Minimum Total Cost at $\tau=0.06$); recommended primary threshold $\tau = 0.22$ achieving 49.75% fraud recall (2,022 fraud cases intercepted), 57.82% precision, and 98.71% specificity while keeping manual review queue strictly at 2.96% of total volume (3,497 reviews); defined 3-tier operational decision policy for Phase 6 (`allow` $< 0.10$, `review` $[0.10, 0.40)$, `block` $\ge 0.40$); generated multi-panel visual artifact `report/threshold_tradeoffs.png` and `artifacts/threshold_tradeoffs.png`; generated `report/threshold_evaluation.md` and `report/threshold_evaluation.json`; added comprehensive unit tests in `tests/test_threshold_tuning.py`.
+- **Commands run:** `d:\Projects\BankGurd\.venv\Scripts\python.exe src/bankguard/models/threshold_tuning.py`, `d:\Projects\BankGurd\.venv\Scripts\python.exe -m pytest`
+- **Outcome:** All 81 unit tests in repository passed in 12.16s. Demonstrated that LightGBM achieves identical recall to baseline with 78% fewer false positive alarms and established an empirically grounded threshold selection rule.
+- **Evidence/artifact paths:** `src/bankguard/models/threshold_tuning.py`, `tests/test_threshold_tuning.py`, `report/threshold_evaluation.md`, `report/threshold_evaluation.json`, `report/threshold_tradeoffs.png`, `artifacts/threshold_tradeoffs.png`
+- **Problems found:** None.
+- **Next exact action:** Awaiting user approval to proceed to Task 5.4 (Add explanations with SHAP).
 
 ### Task 5.2: Train an Improved Model (LightGBM) and Compare with Baseline
 - **Tasks worked on:** Task 5.2 (Train an improved model)
