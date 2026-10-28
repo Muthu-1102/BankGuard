@@ -278,10 +278,12 @@ class BankGuardPreprocessor(BaseEstimator, TransformerMixin):
         # 1. Feature engineering
         X_eng = self.feature_engineer_.transform(X)
 
-        # 2. Ensure all expected columns exist (fill missing columns with NaN)
-        for col in self.numeric_cols_ + self.cat_cols_:
-            if col not in X_eng.columns:
-                X_eng[col] = np.nan
+        # 2. Ensure all expected columns exist (fill missing columns with NaN without fragmentation)
+        all_expected_cols = self.numeric_cols_ + self.cat_cols_
+        missing_cols = [c for c in all_expected_cols if c not in X_eng.columns]
+        if missing_cols:
+            missing_df = pd.DataFrame(np.nan, index=X_eng.index, columns=missing_cols)
+            X_eng = pd.concat([X_eng, missing_df], axis=1)
 
         # 3. Transform via fitted ColumnTransformer
         arr_transformed = self.column_transformer_.transform(X_eng)

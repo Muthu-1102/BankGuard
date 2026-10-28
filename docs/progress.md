@@ -4,7 +4,7 @@
 
 Update this file after every work session. Check a task only after its verification step passes. If a task is blocked, write the blocker and the next action. Do not mark tasks complete based on intention alone.
 
-**Current status:** Phase 6 in progress (Task 6.1 completed)  
+**Current status:** Phase 6 in progress (Tasks 6.1 and 6.2 completed)  
 **Dataset decision:** IEEE-CIS Fraud Detection Kaggle competition dataset  
 **Data policy:** Public competition data; no synthetic replacement  
 **Last updated:** In progress
@@ -26,12 +26,21 @@ Update this file after every work session. Check a task only after its verificat
 | 3. Exploratory data analysis | DONE | EDA report, labeled plots, written findings | Phase 3 complete (Tasks 3.1, 3.2, 3.3) |
 | 4. Leakage-safe features | DONE | Feature pipeline and target-leakage test | Phase 4 complete (Tasks 4.1, 4.2, 4.3) |
 | 5. Train and compare models | DONE | Saved predictions, metrics, threshold analysis, SHAP explanations | Phase 5 complete (Tasks 5.1, 5.2, 5.3, 5.4) |
-| 6. Turn scores into a usable demo | IN PROGRESS | Decision policy, FastAPI serving endpoint, Streamlit dashboard | Task 6.1 complete |
+| 6. Turn scores into a usable demo | IN PROGRESS | Decision policy, FastAPI serving endpoint, Streamlit dashboard | Tasks 6.1 and 6.2 complete |
 | 7. Reliability and delivery | NOT STARTED | Test suite, CI workflow, containerization, final review | |
 
 ## Work log
 
 Add a new entry at the top after each work session.
+
+### Task 6.2: Build the FastAPI Fraud Serving Service
+- **Tasks worked on:** Task 6.2 (Build the API)
+- **What I changed:** Integrated `fastapi>=0.110.0`, `uvicorn>=0.28.0`, `pydantic>=2.0.0`, `httpx>=0.27.0` into `requirements.txt`; implemented `src/bankguard/api/schemas.py` defining Pydantic request/response models (`TransactionInput`, `BatchTransactionInput`, `PredictionResponse`, `BatchPredictionResponse`, `HealthResponse`, `PolicyResponse`); implemented `src/bankguard/api/service.py` providing `ModelService` which loads model, preprocessor, and decision policy once at startup and executes single/batch inference; implemented `src/bankguard/api/app.py` exposing REST endpoints (`GET /`, `GET /health`, `POST /predict`, `POST /predict/batch`, `GET /policy`); enforced unknown fields policy (extra unmodeled fields accepted and safely ignored) and missing fields policy (sparse payloads gracefully imputed via preprocessor); added error handling for model load failures (HTTP 503) and validation errors (HTTP 422); optimized `src/bankguard/features/preprocessor.py` using `pd.concat` for zero DataFrame fragmentation; added 13 comprehensive API integration tests in `tests/test_api.py`.
+- **Commands run:** `d:\Projects\BankGurd\.venv\Scripts\python.exe -m pytest tests/test_api.py`, `d:\Projects\BankGurd\.venv\Scripts\python.exe -m pytest`
+- **Outcome:** All 110 unit tests in repository passed in 13.17s. Verified valid scoring, negative/missing amount validation errors (HTTP 422), unknown/missing fields policy, batch scoring, and model load failure behavior (HTTP 503).
+- **Evidence/artifact paths:** `src/bankguard/api/app.py`, `src/bankguard/api/service.py`, `src/bankguard/api/schemas.py`, `src/bankguard/api/__init__.py`, `tests/test_api.py`, `requirements.txt`
+- **Problems found:** None.
+- **Next exact action:** Awaiting user approval to proceed to Task 6.3 (Build the Streamlit dashboard).
 
 ### Task 6.1: Implement Configurable Fraud Decision Policy
 - **Tasks worked on:** Task 6.1 (Implement decision policy)
