@@ -4,7 +4,7 @@
 
 Update this file after every work session. Check a task only after its verification step passes. If a task is blocked, write the blocker and the next action. Do not mark tasks complete based on intention alone.
 
-**Current status:** Phase 5 complete (Tasks 5.1, 5.2, 5.3, 5.4 completed)  
+**Current status:** Phase 6 in progress (Task 6.1 completed)  
 **Dataset decision:** IEEE-CIS Fraud Detection Kaggle competition dataset  
 **Data policy:** Public competition data; no synthetic replacement  
 **Last updated:** In progress
@@ -26,12 +26,21 @@ Update this file after every work session. Check a task only after its verificat
 | 3. Exploratory data analysis | DONE | EDA report, labeled plots, written findings | Phase 3 complete (Tasks 3.1, 3.2, 3.3) |
 | 4. Leakage-safe features | DONE | Feature pipeline and target-leakage test | Phase 4 complete (Tasks 4.1, 4.2, 4.3) |
 | 5. Train and compare models | DONE | Saved predictions, metrics, threshold analysis, SHAP explanations | Phase 5 complete (Tasks 5.1, 5.2, 5.3, 5.4) |
-| 6. Turn scores into a usable demo | NOT STARTED | Decision policy, FastAPI serving endpoint, Streamlit dashboard | Ready for Phase 6 |
+| 6. Turn scores into a usable demo | IN PROGRESS | Decision policy, FastAPI serving endpoint, Streamlit dashboard | Task 6.1 complete |
 | 7. Reliability and delivery | NOT STARTED | Test suite, CI workflow, containerization, final review | |
 
 ## Work log
 
 Add a new entry at the top after each work session.
+
+### Task 6.1: Implement Configurable Fraud Decision Policy
+- **Tasks worked on:** Task 6.1 (Implement decision policy)
+- **What I changed:** Switched to new branch `feature/phase-6-serving`; implemented `configs/policy_config.yaml` defining operational risk boundaries (`review_threshold: 0.10`, `block_threshold: 0.40`) and action descriptions; implemented `src/bankguard/decisioning/policy.py` and `src/bankguard/decisioning/__init__.py` providing `FraudDecisionPolicy`, `DecisionRecommendation` enum (`allow`, `review`, `high_risk`), and `DecisionResult`; enforced strict determinism, equal-to-threshold escalation policy, and mathematical input validation; scored out-of-time validation transactions yielding 94.42% `allow` (1.35% escape rate), 3.75% `review` (21.26% fraud density), and 1.83% `high_risk` (74.63% auto-decline precision); generated `report/decision_policy_report.md` and `report/decision_policy_report.json`; added comprehensive unit tests in `tests/test_policy.py`.
+- **Commands run:** `git checkout -b feature/phase-6-serving`, `d:\Projects\BankGurd\.venv\Scripts\python.exe src/bankguard/decisioning/policy.py`, `d:\Projects\BankGurd\.venv\Scripts\python.exe -m pytest`
+- **Outcome:** All 97 unit tests in repository passed in 24.18s. Decision policy is verified to deterministically map scores to recommendations with full below-threshold, equal-to-threshold, and above-threshold coverage.
+- **Evidence/artifact paths:** `configs/policy_config.yaml`, `src/bankguard/decisioning/policy.py`, `src/bankguard/decisioning/__init__.py`, `tests/test_policy.py`, `report/decision_policy_report.md`, `report/decision_policy_report.json`
+- **Problems found:** None.
+- **Next exact action:** Awaiting user approval to proceed to Task 6.2 (Build the API with FastAPI).
 
 ### Task 5.4: Add Model Explanations (TreeSHAP)
 - **Tasks worked on:** Task 5.4 (Add explanations)

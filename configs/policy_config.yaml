@@ -1,0 +1,41 @@
+# BankGuard Decision Policy Configuration
+# Defines operational fraud risk tiers, decision boundaries, and action recommendations.
+
+policy_name: "bankguard_three_tier_policy"
+version: "1.0.0"
+description: "Configurable fraud decision engine mapping predicted risk probabilities to operational actions."
+
+# Decision thresholds in probability space [0.0, 1.0]
+# Formally calibrated in Phase 5 threshold tuning (Task 5.3)
+thresholds:
+  review_threshold: 0.10   # Boundary: score < 0.10 -> allow; score >= 0.10 -> review
+  block_threshold: 0.40    # Boundary: score >= 0.40 -> high_risk
+
+tiers:
+  allow:
+    label: "allow"
+    action: "Automated Approval"
+    description: "Low fraud risk. Transaction processed with standard zero-friction flow."
+    min_score: 0.0
+    max_score: 0.10  # Exclusive upper bound
+
+  review:
+    label: "review"
+    action: "Manual Review / Step-up Verification"
+    description: "Elevated fraud probability. Trigger step-up authentication (3DS OTP) or queue for manual analyst review."
+    min_score: 0.10  # Inclusive lower bound
+    max_score: 0.40  # Exclusive upper bound
+
+  high_risk:
+    label: "high_risk"
+    action: "Automated Decline"
+    description: "Critical fraud risk with high certainty. Automatically decline transaction to prevent loss."
+    min_score: 0.40  # Inclusive lower bound
+    max_score: 1.0   # Inclusive upper bound
+
+operational_metadata:
+  is_calibrated: true
+  calibration_source: "report/threshold_evaluation.json"
+  calibration_objective: "High recall while constraining manual investigation queue to sustainable operational capacity"
+  target_prevalence_pct: 3.44
+  documentation_note: "These thresholds are calibrated on the out-of-time IEEE-CIS validation split. When deploying to new institutions, adjust review_threshold based on team review capacity."

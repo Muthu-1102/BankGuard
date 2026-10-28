@@ -1,0 +1,48 @@
+{
+  "policy_name": "bankguard_three_tier_policy",
+  "version": "1.0.0",
+  "thresholds": {
+    "review_threshold": 0.1,
+    "block_threshold": 0.4
+  },
+  "total_transactions": 118108,
+  "distribution": {
+    "allow": {
+      "count": 111517,
+      "percentage": 94.42,
+      "action": "Automated Approval"
+    },
+    "review": {
+      "count": 4427,
+      "percentage": 3.75,
+      "action": "Manual Review / Step-up Verification"
+    },
+    "high_risk": {
+      "count": 2164,
+      "percentage": 1.83,
+      "action": "Automated Decline"
+    }
+  },
+  "ground_truth_breakdown": {
+    "total_actual_fraud": 4064,
+    "total_actual_legitimate": 114044,
+    "fraud_capture_rate_pct": 62.89,
+    "auto_decline_precision_pct": 74.63,
+    "review_queue_fraud_density_pct": 21.26,
+    "allow_tier_escape_rate_pct": 1.352,
+    "matrix": {
+      "allow": {
+        "actual_legitimate": 110009,
+        "actual_fraud": 1508
+      },
+      "review": {
+        "actual_legitimate": 3486,
+        "actual_fraud": 941
+      },
+      "high_risk": {
+        "actual_legitimate": 549,
+        "actual_fraud": 1615
+      }
+    }
+  }
+}
