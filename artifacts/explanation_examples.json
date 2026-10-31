@@ -1,0 +1,512 @@
+[
+  {
+    "transaction_id": 3459510,
+    "true_label": 1,
+    "ground_truth_class": "FRAUD",
+    "fraud_probability": 0.8154,
+    "decision_threshold": 0.22,
+    "is_flagged": true,
+    "risk_tier": "BLOCK",
+    "recommended_action": "Automated High-Risk Decline",
+    "base_value_log_odds": -4.6651,
+    "total_shap_log_odds": 6.1505,
+    "top_risk_drivers": [
+      {
+        "feature": "C1",
+        "feature_value": 36.0,
+        "shap_attribution": 1.35536,
+        "abs_attribution": 1.3553599119186401,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "C13",
+        "feature_value": 0.0,
+        "shap_attribution": 1.02519,
+        "abs_attribution": 1.0251872539520264,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "C14",
+        "feature_value": 0.0,
+        "shap_attribution": 0.97093,
+        "abs_attribution": 0.9709259271621704,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "C4",
+        "feature_value": 4.0,
+        "shap_attribution": 0.84846,
+        "abs_attribution": 0.8484590649604797,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "C11",
+        "feature_value": 7.0,
+        "shap_attribution": 0.58746,
+        "abs_attribution": 0.5874619483947754,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "C10",
+        "feature_value": 16.0,
+        "shap_attribution": 0.35383,
+        "abs_attribution": 0.35382920503616333,
+        "direction": "INCREASES_RISK"
+      }
+    ],
+    "top_protective_factors": [
+      {
+        "feature": "card1",
+        "feature_value": 15944.0,
+        "shap_attribution": -0.1822,
+        "abs_attribution": 0.18220146000385284,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "D3",
+        "feature_value": 0.0,
+        "shap_attribution": -0.16032,
+        "abs_attribution": 0.16031740605831146,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "V215",
+        "feature_value": 59.6356,
+        "shap_attribution": -0.13091,
+        "abs_attribution": 0.1309063732624054,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "V77",
+        "feature_value": 2.0,
+        "shap_attribution": -0.07747,
+        "abs_attribution": 0.07747337222099304,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "M6",
+        "feature_value": 2.0,
+        "shap_attribution": -0.06929,
+        "abs_attribution": 0.06928947567939758,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "D8",
+        "feature_value": 0.1667,
+        "shap_attribution": -0.06795,
+        "abs_attribution": 0.06795323640108109,
+        "direction": "DECREASES_RISK"
+      }
+    ],
+    "disclaimer": "IMPORTANT DISCLAIMER: Model explanations (e.g. SHAP feature attributions) quantify statistical associations and internal decision contributions within the tree ensemble. They do NOT establish real-world causality. An elevated attribution indicates that a feature value correlated with fraud patterns in historical training data, not that the feature or the cardholder caused fraudulent activity.",
+    "archetype": "HIGH_CONFIDENCE_FRAUD"
+  },
+  {
+    "transaction_id": 3459434,
+    "true_label": 0,
+    "ground_truth_class": "LEGITIMATE",
+    "fraud_probability": 0.3817,
+    "decision_threshold": 0.22,
+    "is_flagged": true,
+    "risk_tier": "REVIEW",
+    "recommended_action": "Manual Review / Step-up Verification",
+    "base_value_log_odds": -4.6651,
+    "total_shap_log_odds": 4.1826,
+    "top_risk_drivers": [
+      {
+        "feature": "C14",
+        "feature_value": 0.0,
+        "shap_attribution": 1.41259,
+        "abs_attribution": 1.4125882387161255,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "id_09",
+        "feature_value": 6.0,
+        "shap_attribution": 0.92831,
+        "abs_attribution": 0.9283103942871094,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "id_03",
+        "feature_value": 6.0,
+        "shap_attribution": 0.49746,
+        "abs_attribution": 0.4974588453769684,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "C13",
+        "feature_value": 0.0,
+        "shap_attribution": 0.32859,
+        "abs_attribution": 0.3285921514034271,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "card3",
+        "feature_value": 185.0,
+        "shap_attribution": 0.26367,
+        "abs_attribution": 0.263674259185791,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "ProductCD",
+        "feature_value": 0.0,
+        "shap_attribution": 0.23646,
+        "abs_attribution": 0.23645591735839844,
+        "direction": "INCREASES_RISK"
+      }
+    ],
+    "top_protective_factors": [
+      {
+        "feature": "card2",
+        "feature_value": 555.0,
+        "shap_attribution": -0.36301,
+        "abs_attribution": 0.3630061745643616,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "card6",
+        "feature_value": 2.0,
+        "shap_attribution": -0.19153,
+        "abs_attribution": 0.19152814149856567,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "V64",
+        "feature_value": 1.0,
+        "shap_attribution": -0.09039,
+        "abs_attribution": 0.09038523584604263,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "C1",
+        "feature_value": 1.0,
+        "shap_attribution": -0.07608,
+        "abs_attribution": 0.0760793536901474,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "hour_of_day",
+        "feature_value": 2.0,
+        "shap_attribution": -0.07064,
+        "abs_attribution": 0.07063555717468262,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "M6",
+        "feature_value": 2.0,
+        "shap_attribution": -0.06419,
+        "abs_attribution": 0.0641912892460823,
+        "direction": "DECREASES_RISK"
+      }
+    ],
+    "disclaimer": "IMPORTANT DISCLAIMER: Model explanations (e.g. SHAP feature attributions) quantify statistical associations and internal decision contributions within the tree ensemble. They do NOT establish real-world causality. An elevated attribution indicates that a feature value correlated with fraud patterns in historical training data, not that the feature or the cardholder caused fraudulent activity.",
+    "archetype": "SUSPICIOUS_REVIEW"
+  },
+  {
+    "transaction_id": 3459434,
+    "true_label": 0,
+    "ground_truth_class": "LEGITIMATE",
+    "fraud_probability": 0.3817,
+    "decision_threshold": 0.22,
+    "is_flagged": true,
+    "risk_tier": "REVIEW",
+    "recommended_action": "Manual Review / Step-up Verification",
+    "base_value_log_odds": -4.6651,
+    "total_shap_log_odds": 4.1826,
+    "top_risk_drivers": [
+      {
+        "feature": "C14",
+        "feature_value": 0.0,
+        "shap_attribution": 1.41259,
+        "abs_attribution": 1.4125882387161255,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "id_09",
+        "feature_value": 6.0,
+        "shap_attribution": 0.92831,
+        "abs_attribution": 0.9283103942871094,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "id_03",
+        "feature_value": 6.0,
+        "shap_attribution": 0.49746,
+        "abs_attribution": 0.4974588453769684,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "C13",
+        "feature_value": 0.0,
+        "shap_attribution": 0.32859,
+        "abs_attribution": 0.3285921514034271,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "card3",
+        "feature_value": 185.0,
+        "shap_attribution": 0.26367,
+        "abs_attribution": 0.263674259185791,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "ProductCD",
+        "feature_value": 0.0,
+        "shap_attribution": 0.23646,
+        "abs_attribution": 0.23645591735839844,
+        "direction": "INCREASES_RISK"
+      }
+    ],
+    "top_protective_factors": [
+      {
+        "feature": "card2",
+        "feature_value": 555.0,
+        "shap_attribution": -0.36301,
+        "abs_attribution": 0.3630061745643616,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "card6",
+        "feature_value": 2.0,
+        "shap_attribution": -0.19153,
+        "abs_attribution": 0.19152814149856567,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "V64",
+        "feature_value": 1.0,
+        "shap_attribution": -0.09039,
+        "abs_attribution": 0.09038523584604263,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "C1",
+        "feature_value": 1.0,
+        "shap_attribution": -0.07608,
+        "abs_attribution": 0.0760793536901474,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "hour_of_day",
+        "feature_value": 2.0,
+        "shap_attribution": -0.07064,
+        "abs_attribution": 0.07063555717468262,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "M6",
+        "feature_value": 2.0,
+        "shap_attribution": -0.06419,
+        "abs_attribution": 0.0641912892460823,
+        "direction": "DECREASES_RISK"
+      }
+    ],
+    "disclaimer": "IMPORTANT DISCLAIMER: Model explanations (e.g. SHAP feature attributions) quantify statistical associations and internal decision contributions within the tree ensemble. They do NOT establish real-world causality. An elevated attribution indicates that a feature value correlated with fraud patterns in historical training data, not that the feature or the cardholder caused fraudulent activity.",
+    "archetype": "FALSE_POSITIVE_CHALLENGED"
+  },
+  {
+    "transaction_id": 3459433,
+    "true_label": 0,
+    "ground_truth_class": "LEGITIMATE",
+    "fraud_probability": 0.0017,
+    "decision_threshold": 0.22,
+    "is_flagged": false,
+    "risk_tier": "ALLOW",
+    "recommended_action": "Automated Approval",
+    "base_value_log_odds": -4.6651,
+    "total_shap_log_odds": -1.7081,
+    "top_risk_drivers": [
+      {
+        "feature": "C13",
+        "feature_value": 1.0,
+        "shap_attribution": 0.13396,
+        "abs_attribution": 0.13395816087722778,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "id_31",
+        "feature_value": 56.0,
+        "shap_attribution": 0.12089,
+        "abs_attribution": 0.12089069187641144,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "id_17",
+        "feature_value": 225.0,
+        "shap_attribution": 0.07706,
+        "abs_attribution": 0.07705707848072052,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "V91",
+        "feature_value": 0.0,
+        "shap_attribution": 0.07274,
+        "abs_attribution": 0.0727396234869957,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "card2",
+        "feature_value": 179.0,
+        "shap_attribution": 0.06753,
+        "abs_attribution": 0.06753316521644592,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "D4",
+        "feature_value": 0.0,
+        "shap_attribution": 0.06566,
+        "abs_attribution": 0.06565741449594498,
+        "direction": "INCREASES_RISK"
+      }
+    ],
+    "top_protective_factors": [
+      {
+        "feature": "card3",
+        "feature_value": 106.0,
+        "shap_attribution": -0.74577,
+        "abs_attribution": 0.7457654476165771,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "id_02",
+        "feature_value": 978553.0,
+        "shap_attribution": -0.36134,
+        "abs_attribution": 0.3613443970680237,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "DeviceInfo",
+        "feature_value": 250.0,
+        "shap_attribution": -0.15874,
+        "abs_attribution": 0.1587371677160263,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "TransactionAmt",
+        "feature_value": 52.811,
+        "shap_attribution": -0.14792,
+        "abs_attribution": 0.1479184478521347,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "card6",
+        "feature_value": 2.0,
+        "shap_attribution": -0.12799,
+        "abs_attribution": 0.1279870867729187,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "C11",
+        "feature_value": 1.0,
+        "shap_attribution": -0.09221,
+        "abs_attribution": 0.09220738708972931,
+        "direction": "DECREASES_RISK"
+      }
+    ],
+    "disclaimer": "IMPORTANT DISCLAIMER: Model explanations (e.g. SHAP feature attributions) quantify statistical associations and internal decision contributions within the tree ensemble. They do NOT establish real-world causality. An elevated attribution indicates that a feature value correlated with fraud patterns in historical training data, not that the feature or the cardholder caused fraudulent activity.",
+    "archetype": "LOW_RISK_AUTO_APPROVED"
+  },
+  {
+    "transaction_id": 3459432,
+    "true_label": 1,
+    "ground_truth_class": "FRAUD",
+    "fraud_probability": 0.0199,
+    "decision_threshold": 0.22,
+    "is_flagged": false,
+    "risk_tier": "ALLOW",
+    "recommended_action": "Automated Approval",
+    "base_value_log_odds": -4.6651,
+    "total_shap_log_odds": 0.7696,
+    "top_risk_drivers": [
+      {
+        "feature": "card3",
+        "feature_value": 185.0,
+        "shap_attribution": 0.29749,
+        "abs_attribution": 0.2974858283996582,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "R_emaildomain",
+        "feature_value": 16.0,
+        "shap_attribution": 0.21306,
+        "abs_attribution": 0.21305550634860992,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "id_17",
+        "feature_value": 225.0,
+        "shap_attribution": 0.15684,
+        "abs_attribution": 0.15684325993061066,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "C13",
+        "feature_value": 1.0,
+        "shap_attribution": 0.1403,
+        "abs_attribution": 0.14030171930789948,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "id_31",
+        "feature_value": 52.0,
+        "shap_attribution": 0.13618,
+        "abs_attribution": 0.13617706298828125,
+        "direction": "INCREASES_RISK"
+      },
+      {
+        "feature": "DeviceInfo",
+        "feature_value": 1593.0,
+        "shap_attribution": 0.08595,
+        "abs_attribution": 0.0859462320804596,
+        "direction": "INCREASES_RISK"
+      }
+    ],
+    "top_protective_factors": [
+      {
+        "feature": "card2",
+        "feature_value": 103.0,
+        "shap_attribution": -0.21993,
+        "abs_attribution": 0.21993085741996765,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "card6",
+        "feature_value": 2.0,
+        "shap_attribution": -0.18604,
+        "abs_attribution": 0.1860402673482895,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "TransactionAmt",
+        "feature_value": 33.261,
+        "shap_attribution": -0.16579,
+        "abs_attribution": 0.1657872051000595,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "C11",
+        "feature_value": 1.0,
+        "shap_attribution": -0.09067,
+        "abs_attribution": 0.09066857397556305,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "C1",
+        "feature_value": 1.0,
+        "shap_attribution": -0.0619,
+        "abs_attribution": 0.06190342456102371,
+        "direction": "DECREASES_RISK"
+      },
+      {
+        "feature": "C2",
+        "feature_value": 1.0,
+        "shap_attribution": -0.05338,
+        "abs_attribution": 0.053379036486148834,
+        "direction": "DECREASES_RISK"
+      }
+    ],
+    "disclaimer": "IMPORTANT DISCLAIMER: Model explanations (e.g. SHAP feature attributions) quantify statistical associations and internal decision contributions within the tree ensemble. They do NOT establish real-world causality. An elevated attribution indicates that a feature value correlated with fraud patterns in historical training data, not that the feature or the cardholder caused fraudulent activity.",
+    "archetype": "FALSE_NEGATIVE_MISSED_FRAUD"
+  }
+]

@@ -27,11 +27,20 @@ Update this file after every work session. Check a task only after its verificat
 | 4. Leakage-safe features | DONE | Feature pipeline and target-leakage test | Phase 4 complete (Tasks 4.1, 4.2, 4.3) |
 | 5. Train and compare models | DONE | Saved predictions, metrics, threshold analysis, SHAP explanations | Phase 5 complete (Tasks 5.1, 5.2, 5.3, 5.4) |
 | 6. Turn scores into a usable demo | DONE | Decision policy, FastAPI serving endpoint, Streamlit dashboard | Phase 6 complete (Tasks 6.1, 6.2, 6.3) |
-| 7. Reliability and delivery | IN PROGRESS | Test suite, CI workflow, containerization, final review | Task 7.1 completed |
+| 7. Reliability and delivery | IN PROGRESS | Test suite, CI workflow, containerization, final review | Tasks 7.1 and 7.2 completed |
 
 ## Work log
 
 Add a new entry at the top after each work session.
+
+### Task 7.2: Add Tests and Continuous Integration (CI)
+- **Tasks worked on:** Task 7.2 (Add tests and CI)
+- **What I changed:** Configured GitHub Actions continuous integration workflow in `.github/workflows/ci.yml` running on `ubuntu-latest` with Python 3.10, pip dependency caching, editable package installation, full pytest execution, operational monitoring batch verification, and audit report integrity checks; updated `pyproject.toml` and `requirements.txt` to declare all production dependencies (`lightgbm`, `shap`, `fastapi`, `uvicorn`, `pydantic`, `httpx`, `streamlit`, `plotly`, `requests`, `joblib`, `pytest`); configured pytest options (`-v --durations=10`) and clean warning filters; updated `.gitignore` to track production model artifacts and serialized weights so CI runs in a self-contained environment without downloading raw Kaggle data; created `tests/test_ci_configuration.py` with 4 automated tests verifying workflow syntax, triggers, dependency completeness, and clean package importability.
+- **Commands run:** `d:\Projects\BankGurd\.venv\Scripts\python.exe -m pytest tests/test_ci_configuration.py`, `d:\Projects\BankGurd\.venv\Scripts\python.exe -m pytest`
+- **Outcome:** All 134 tests in repository passed in 13.92s with zero warnings and zero failures. Regressions across data checks, joins, preprocessing, metrics, policy, API, dashboard, and monitoring are now automatically caught in CI.
+- **Evidence/artifact paths:** `.github/workflows/ci.yml`, `tests/test_ci_configuration.py`, `pyproject.toml`, `requirements.txt`, `.gitignore`
+- **Problems found:** None.
+- **Next exact action:** Awaiting user approval to proceed to Task 7.3 (Containerize).
 
 ### Task 7.1: Add Monitoring Summaries and Operational Telemetry
 - **Tasks worked on:** Task 7.1 (Add monitoring summaries)

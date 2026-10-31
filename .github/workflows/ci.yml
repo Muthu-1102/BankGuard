@@ -1,0 +1,68 @@
+name: BankGuard CI
+
+'on':
+  push:
+    branches:
+      - main
+      - 'feature/**'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Test Suite & Quality Audits (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10"]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e .
+
+      - name: Run Pytest Test Suite
+        run: |
+          pytest
+
+      - name: Verify Operational Monitoring Batch Telemetry
+        run: |
+          python src/bankguard/monitoring/run_monitoring_batch.py
+
+      - name: Verify Audit Reports & Artifact Integrity
+        run: |
+          python -c "
+          from pathlib import Path
+          required_reports = [
+              'report/data_quality_report.json',
+              'report/join_report.json',
+              'report/target_analysis.json',
+              'report/amount_time_analysis.json',
+              'report/preprocessing_pipeline_report.json',
+              'report/baseline_metrics.json',
+              'report/improved_metrics.json',
+              'report/model_comparison.json',
+              'report/threshold_evaluation.json',
+              'report/decision_policy_report.json',
+              'report/monitoring_summary.json',
+          ]
+          missing = [r for r in required_reports if not Path(r).exists()]
+          if missing:
+              raise FileNotFoundError(f'Missing required audit reports: {missing}')
+          print(f'All {len(required_reports)} audit reports verified on disk.')
+          "

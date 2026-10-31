@@ -13,6 +13,11 @@ data/processed/*
 # Model artifacts and binaries
 artifacts/*
 !artifacts/.gitkeep
+!artifacts/*.joblib
+!artifacts/*.npz
+!artifacts/*.json
+!artifacts/*.csv
+!artifacts/*.png
 
 # Secrets and environment configurations
 .env
