@@ -1,10 +1,10 @@
-"""Pydantic data schemas for BankGuard fraud scoring API (Task 6.2).
+"""Pydantic data schemas for BankGuard fraud scoring API (Task 6.2 & 7.1).
 
-Defines rigorous request validation, response serialization, and policy models:
+Defines rigorous request validation, response serialization, policy, and monitoring models:
 - Single and batch transaction input schemas.
 - Strict positive amount validation.
 - Permissive extra attribute handling (unknown fields policy: accept and ignore gracefully).
-- Structured response formats for fraud risk scores, decision recommendations, and health status.
+- Structured response formats for fraud risk scores, decision recommendations, health status, and operational monitoring.
 """
 
 from typing import Any, Dict, List, Optional
@@ -58,33 +58,33 @@ class TransactionInput(BaseModel):
 
 
 class BatchTransactionInput(BaseModel):
-    """Input payload for scoring a batch of financial transactions."""
+    """Batch input schema accepting multiple transactions."""
     transactions: List[TransactionInput] = Field(
         ...,
         min_length=1,
         max_length=500,
-        description="Batch of transactions to evaluate (1 to 500 records)",
+        description="List of 1 to 500 transactions for vectorized scoring",
     )
 
 
 class PredictionResponse(BaseModel):
-    """Standardized fraud prediction and decision recommendation response."""
-    transaction_id: Optional[int] = Field(None, description="Unique transaction identifier")
-    fraud_probability: float = Field(..., ge=0.0, le=1.0, description="Calibrated fraud probability in [0.0, 1.0]")
-    risk_tier: str = Field(..., description="Operational decision tier ('allow', 'review', 'high_risk')")
-    recommendation: str = Field(..., description="Decision recommendation label")
-    action: str = Field(..., description="Operational action recommendation")
-    description: str = Field(..., description="Detailed operational guidance")
-    thresholds: Dict[str, float] = Field(..., description="Active operational decision thresholds")
-    latency_ms: float = Field(..., ge=0.0, description="End-to-end scoring latency in milliseconds")
-    model_version: str = Field(..., description="Active model release version")
+    """Scoring result and policy recommendation for a single transaction."""
+    transaction_id: Optional[int] = Field(None, description="Identifier of the evaluated transaction")
+    fraud_probability: float = Field(..., ge=0.0, le=1.0, description="Estimated fraud risk probability [0.0, 1.0]")
+    risk_tier: str = Field(..., description="Assigned policy tier: 'allow', 'review', or 'high_risk'")
+    recommendation: str = Field(..., description="Uppercase recommendation: 'ALLOW', 'REVIEW', or 'HIGH_RISK'")
+    action: str = Field(..., description="Operational action instruction for payment rails")
+    description: str = Field(..., description="Human-readable decision rationale")
+    thresholds: Dict[str, float] = Field(..., description="Active operational cutoffs applied")
+    latency_ms: float = Field(..., ge=0.0, description="Processing latency in milliseconds")
+    model_version: str = Field(..., description="Serving model version")
 
 
 class BatchPredictionResponse(BaseModel):
-    """Batch scoring summary and collection of individual transaction predictions."""
-    predictions: List[PredictionResponse] = Field(..., description="List of prediction results")
-    total_evaluated: int = Field(..., ge=0, description="Total transactions processed")
-    tier_distribution: Dict[str, int] = Field(..., description="Breakdown of recommendations by tier")
+    """Result for a batch evaluation of transactions."""
+    predictions: List[PredictionResponse] = Field(..., description="Individual scoring results")
+    total_evaluated: int = Field(..., description="Number of transactions scored")
+    tier_distribution: Dict[str, int] = Field(..., description="Count of decisions per policy tier")
     total_latency_ms: float = Field(..., ge=0.0, description="Total batch processing latency in milliseconds")
 
 
@@ -106,3 +106,15 @@ class PolicyResponse(BaseModel):
     review_threshold: float
     block_threshold: float
     tiers: Dict[str, Any]
+
+
+class MonitoringSummaryResponse(BaseModel):
+    """Operational monitoring summary schema (Task 7.1)."""
+    generated_at: str
+    service: str
+    uptime_seconds: float
+    throughput: Dict[str, Any]
+    score_distribution: Dict[str, Any]
+    decision_tier_distribution: Dict[str, Any]
+    latency_telemetry: Dict[str, Any]
+    data_quality_and_missingness: Dict[str, Any]

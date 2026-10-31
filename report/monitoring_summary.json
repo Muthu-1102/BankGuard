@@ -1,0 +1,108 @@
+{
+  "generated_at": "2026-10-31T05:04:40.780636+00:00",
+  "service": "BankGuard Fraud Intelligence Serving Service",
+  "uptime_seconds": 0.27,
+  "throughput": {
+    "total_requests": 1000,
+    "successful_predictions": 1000,
+    "failed_predictions": 0,
+    "failure_rate_pct": 0.0,
+    "failure_categories": {}
+  },
+  "score_distribution": {
+    "count": 1000,
+    "mean": 0.0188,
+    "std": 0.0237,
+    "min": 0.0022,
+    "max": 0.1937,
+    "percentiles": {
+      "p10": 0.0049,
+      "p25": 0.0071,
+      "p50": 0.0119,
+      "p75": 0.02,
+      "p90": 0.0345,
+      "p95": 0.0554,
+      "p99": 0.137
+    },
+    "buckets": {
+      "0.0_to_0.10_safe": 972,
+      "0.10_to_0.20_low": 28,
+      "0.20_to_0.40_review": 0,
+      "0.40_to_0.60_high": 0,
+      "0.60_to_0.80_very_high": 0,
+      "0.80_to_1.00_critical": 0
+    }
+  },
+  "decision_tier_distribution": {
+    "allow": {
+      "count": 972,
+      "percentage": 97.2
+    },
+    "review": {
+      "count": 28,
+      "percentage": 2.8
+    },
+    "high_risk": {
+      "count": 0,
+      "percentage": 0.0
+    }
+  },
+  "latency_telemetry": {
+    "count": 1000,
+    "mean_ms": 0.05,
+    "min_ms": 0.05,
+    "max_ms": 0.05,
+    "percentiles": {
+      "p50_ms": 0.05,
+      "p90_ms": 0.05,
+      "p95_ms": 0.05,
+      "p99_ms": 0.05
+    },
+    "sla_target_ms": 10.0,
+    "sla_compliance_pct": 100.0
+  },
+  "data_quality_and_missingness": {
+    "total_fields_inspected": 15000,
+    "total_missing_values": 2111,
+    "overall_missingness_rate_pct": 14.07,
+    "total_quality_alerts": 2,
+    "top_missing_fields": [
+      {
+        "field": "R_emaildomain",
+        "missing_count": 750
+      },
+      {
+        "field": "dist1",
+        "missing_count": 566
+      },
+      {
+        "field": "P_emaildomain",
+        "missing_count": 280
+      },
+      {
+        "field": "card2",
+        "missing_count": 138
+      },
+      {
+        "field": "addr1",
+        "missing_count": 119
+      },
+      {
+        "field": "addr2",
+        "missing_count": 106
+      },
+      {
+        "field": "card3",
+        "missing_count": 96
+      },
+      {
+        "field": "card4",
+        "missing_count": 50
+      },
+      {
+        "field": "card1",
+        "missing_count": 6
+      }
+    ]
+  }
+}

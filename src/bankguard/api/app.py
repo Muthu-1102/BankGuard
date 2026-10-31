@@ -1,4 +1,4 @@
-"""FastAPI application for BankGuard financial transaction fraud scoring (Task 6.2).
+"""FastAPI application for BankGuard financial transaction fraud scoring and telemetry (Task 6.2 & 7.1).
 
 Exposes production REST endpoints:
 - GET / : API service metadata and documentation links.
@@ -6,11 +6,13 @@ Exposes production REST endpoints:
 - POST /predict : Real-time single transaction fraud scoring and decisioning.
 - POST /predict/batch : High-throughput batch transaction scoring.
 - GET /policy : Current decision policy thresholds and actions.
+- GET /monitoring/summary : Live operational telemetry, latency, scores, missingness, and failure rates (Task 7.1).
 
 Features:
 - Artifacts loaded once at startup via ASGI lifespan context.
 - Input validation with detailed Pydantic error reporting.
 - Robust error handling for model load failures (HTTP 503).
+- Operational telemetry tracking data quality, missingness, score distribution, and latency without PII.
 """
 
 from contextlib import asynccontextmanager
@@ -25,6 +27,7 @@ from bankguard.api.schemas import (
     BatchPredictionResponse,
     BatchTransactionInput,
     HealthResponse,
+    MonitoringSummaryResponse,
     PolicyResponse,
     PredictionResponse,
     TransactionInput,
@@ -71,7 +74,7 @@ def create_app(
         title="BankGuard Fraud Detection API",
         description=(
             "Real-time financial transaction fraud risk estimation, explainability, "
-            "and automated decision recommendation service."
+            "automated decision recommendation, and operational monitoring service."
         ),
         version="1.0.0",
         lifespan=lifespan,
@@ -94,7 +97,7 @@ def create_app(
     @app.get(
         "/",
         summary="Service Index",
-        description="Returns API service information and active routes.",
+        description="Returns API service information, status, and active operational endpoints.",
         tags=["System"],
     )
     async def root():
@@ -105,11 +108,13 @@ def create_app(
             "docs_url": "/docs",
             "health_url": "/health",
             "policy_url": "/policy",
+            "monitoring_url": "/monitoring/summary",
             "endpoints": {
                 "predict_single": "POST /predict",
                 "predict_batch": "POST /predict/batch",
                 "health": "GET /health",
                 "policy": "GET /policy",
+                "monitoring_summary": "GET /monitoring/summary",
             },
         }
 
@@ -133,7 +138,7 @@ def create_app(
         "/predict",
         response_model=PredictionResponse,
         summary="Score Single Transaction",
-        description="Evaluates fraud risk probability for a transaction and assigns an operational action.",
+        description="Evaluates fraud risk probability for a transaction, assigns an operational action, and records monitoring telemetry.",
         tags=["Inference"],
     )
     async def predict_single_transaction(payload: TransactionInput):
@@ -154,7 +159,7 @@ def create_app(
         "/predict/batch",
         response_model=BatchPredictionResponse,
         summary="Score Batch of Transactions",
-        description="Evaluates a list of up to 500 transactions in a vectorized pass.",
+        description="Evaluates a list of up to 500 transactions in a vectorized pass and records batch telemetry.",
         tags=["Inference"],
     )
     async def predict_batch_transactions(payload: BatchTransactionInput):
@@ -185,6 +190,16 @@ def create_app(
                 detail="Decision policy is not loaded.",
             )
         return model_service.get_policy_metadata()
+
+    @app.get(
+        "/monitoring/summary",
+        response_model=MonitoringSummaryResponse,
+        summary="Operational Monitoring Telemetry Summary",
+        description="Retrieves live operational metrics: throughput, score distribution, latency percentiles, missingness rates, and failure statistics.",
+        tags=["Monitoring"],
+    )
+    async def get_monitoring_summary():
+        return model_service.get_monitoring_summary()
 
     return app
 

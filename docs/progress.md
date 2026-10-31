@@ -27,11 +27,20 @@ Update this file after every work session. Check a task only after its verificat
 | 4. Leakage-safe features | DONE | Feature pipeline and target-leakage test | Phase 4 complete (Tasks 4.1, 4.2, 4.3) |
 | 5. Train and compare models | DONE | Saved predictions, metrics, threshold analysis, SHAP explanations | Phase 5 complete (Tasks 5.1, 5.2, 5.3, 5.4) |
 | 6. Turn scores into a usable demo | DONE | Decision policy, FastAPI serving endpoint, Streamlit dashboard | Phase 6 complete (Tasks 6.1, 6.2, 6.3) |
-| 7. Reliability and delivery | IN PROGRESS | Test suite, CI workflow, containerization, final review | Task 7.1 in progress |
+| 7. Reliability and delivery | IN PROGRESS | Test suite, CI workflow, containerization, final review | Task 7.1 completed |
 
 ## Work log
 
 Add a new entry at the top after each work session.
+
+### Task 7.1: Add Monitoring Summaries and Operational Telemetry
+- **Tasks worked on:** Task 7.1 (Add monitoring summaries)
+- **What I changed:** Switched to branch `feature/phase-7-reliability`; implemented structured JSON logging with strict PII sanitization in `src/bankguard/monitoring/logger.py`; created thread-safe `OperationalMetricsTracker` in `src/bankguard/monitoring/tracker.py` to track operational throughput, failure rates/taxonomy, score distribution (min, max, mean, std, p10..p99 percentiles, histogram buckets), decision tier counts, execution latency percentiles (p50, p90, p95, p99, SLA compliance), data quality alerts (e.g. extreme or negative amounts), and field-level missingness rates; integrated tracker into `ModelService` in `src/bankguard/api/service.py`; added `MonitoringSummaryResponse` to `src/bankguard/api/schemas.py`; exposed `GET /monitoring/summary` endpoint on FastAPI in `src/bankguard/api/app.py`; built batch runner `src/bankguard/monitoring/run_monitoring_batch.py` generating `report/monitoring_summary.json` and `report/monitoring_summary.md`; developed comprehensive unit and integration test suite `tests/test_monitoring.py` covering PII redaction, single/batch tracking, failure recording, latency quantiles, API endpoint, and fixed test batch execution.
+- **Commands run:** `d:\Projects\BankGurd\.venv\Scripts\python.exe -m pytest tests/test_monitoring.py`, `d:\Projects\BankGurd\.venv\Scripts\python.exe src/bankguard/monitoring/run_monitoring_batch.py`, `d:\Projects\BankGurd\.venv\Scripts\python.exe -m pytest`
+- **Outcome:** All 130 tests in repository passed in 18.84s. Fixed test batch of 1,000 transactions verified with 1,000 successful predictions (0 failures), mean vectorized latency of 0.05 ms/txn (100% SLA compliance), 97.20% allow / 2.80% review / 0.00% high_risk tier distribution, 2 data quality alerts captured, and 14.07% missingness rate calculated without logging any PII.
+- **Evidence/artifact paths:** `src/bankguard/monitoring/logger.py`, `src/bankguard/monitoring/tracker.py`, `src/bankguard/monitoring/run_monitoring_batch.py`, `src/bankguard/monitoring/__init__.py`, `report/monitoring_summary.json`, `report/monitoring_summary.md`, `tests/test_monitoring.py`, `src/bankguard/api/app.py`, `src/bankguard/api/service.py`, `src/bankguard/api/schemas.py`
+- **Problems found:** None.
+- **Next exact action:** Awaiting user approval to proceed to Task 7.2 (Add tests and CI).
 
 ### Task 6.3: Build the Interactive FinTech Dashboard
 - **Tasks worked on:** Task 6.3 (Build the dashboard)
