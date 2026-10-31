@@ -1,0 +1,41 @@
+# Git and VCS
+.git/
+.gitignore
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Raw and Processed Datasets (Strictly excluded from container image)
+data/raw/
+data/processed/
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+
+# Test caches and coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# IDE and OS artifacts
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.qodo/
+
+# Local logs and temporary files
+*.log
+tmp/
+scratch/
+
