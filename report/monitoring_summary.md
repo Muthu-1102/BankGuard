@@ -1,8 +1,8 @@
 # BankGuard — Operational Monitoring & Batch Telemetry Report
 
-**Generated At:** 2026-10-31T05:04:40.782220+00:00  
+**Generated At:** 2026-10-31T09:49:18.991379+00:00  
 **Service:** BankGuard Fraud Intelligence Serving Service  
-**Uptime:** 0.27 seconds  
+**Uptime:** 0.39 seconds  
 
 ---
 
@@ -60,11 +60,11 @@
 
 | Latency Metric | Measured | SLA Standard | Status |
 | :--- | :--- | :--- | :--- |
-| **Average Latency** | **0.05 ms** | &le; 5.0 ms | ✔ PASS |
-| **Median Latency (p50)** | **0.05 ms** | &le; 3.0 ms | ✔ PASS |
-| **p90 Latency** | **0.05 ms** | &le; 8.0 ms | ✔ PASS |
-| **p95 Latency** | **0.05 ms** | &le; 10.0 ms | ✔ PASS |
-| **p99 Latency** | **0.05 ms** | &le; 15.0 ms | ✔ PASS |
+| **Average Latency** | **0.07 ms** | &le; 5.0 ms | ✔ PASS |
+| **Median Latency (p50)** | **0.07 ms** | &le; 3.0 ms | ✔ PASS |
+| **p90 Latency** | **0.07 ms** | &le; 8.0 ms | ✔ PASS |
+| **p95 Latency** | **0.07 ms** | &le; 10.0 ms | ✔ PASS |
+| **p99 Latency** | **0.07 ms** | &le; 15.0 ms | ✔ PASS |
 | **SLA Target Compliance** | **100.00%** | &ge; 99.0% &le; 10.0 ms | ✔ PASS |
 
 ---

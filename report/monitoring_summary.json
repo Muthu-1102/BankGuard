@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-31T05:04:40.780636+00:00",
+  "generated_at": "2026-10-31T09:49:18.989401+00:00",
   "service": "BankGuard Fraud Intelligence Serving Service",
-  "uptime_seconds": 0.27,
+  "uptime_seconds": 0.39,
   "throughput": {
     "total_requests": 1000,
     "successful_predictions": 1000,
@@ -49,14 +49,14 @@
   },
   "latency_telemetry": {
     "count": 1000,
-    "mean_ms": 0.05,
-    "min_ms": 0.05,
-    "max_ms": 0.05,
+    "mean_ms": 0.07,
+    "min_ms": 0.07,
+    "max_ms": 0.07,
     "percentiles": {
-      "p50_ms": 0.05,
-      "p90_ms": 0.05,
-      "p95_ms": 0.05,
-      "p99_ms": 0.05
+      "p50_ms": 0.07,
+      "p90_ms": 0.07,
+      "p95_ms": 0.07,
+      "p99_ms": 0.07
     },
     "sla_target_ms": 10.0,
     "sla_compliance_pct": 100.0

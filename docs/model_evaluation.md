@@ -40,17 +40,20 @@ Use the same validation rows and report:
 
 | Item | Baseline | Improved model |
 |---|---:|---:|
-| Model name/version | Fill from run | Fill from run |
-| Feature set/version | Fill from run | Fill from run |
-| PR-AUC / Average Precision | Calculate | Calculate |
-| ROC-AUC | Calculate | Calculate |
-| Precision at chosen threshold | Calculate | Calculate |
-| Recall at chosen threshold | Calculate | Calculate |
-| F1 at chosen threshold | Calculate | Calculate |
-| False positives | Calculate | Calculate |
-| False negatives | Calculate | Calculate |
-| Inference latency | Measure | Measure |
-| Training duration | Measure | Measure |
+| Model name/version | `LogisticRegression (balanced)` | `LightGBM 4.7.0 (GBDT)` |
+| Feature set/version | `v1.0 (438 features)` | `v1.0 (438 features)` |
+| PR-AUC / Average Precision | `0.1420` | `0.5598` (+294.2%) |
+| ROC-AUC | `0.7844` | `0.9136` (+16.5%) |
+| Brier Score | `0.1716` | `0.0212` (-87.6%) |
+| Log Loss | `0.6191` | `0.0867` (-86.0%) |
+| Precision at default threshold (0.50) | `0.1203` | `0.8107` (+573.9%) |
+| Recall at default threshold (0.50) | `0.6228` | `0.3573` (-42.6%) |
+| F1 at default threshold (0.50) | `0.2017` | `0.4960` (+145.9%) |
+| Specificity | `0.8377` | `0.9970` (+19.0%) |
+| False positives | `18,507` | `339` (-98.2%) |
+| False negatives | `1,533` | `2,612` |
+| Inference latency (vectorized batch) | `~0.15 ms/txn` | `~0.07 ms/txn` |
+| Training duration | `96.69 s` | `12.01 s` |
 
 Do not fill this table with example or invented scores. Use values calculated by the project.
 

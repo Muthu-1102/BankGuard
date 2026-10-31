@@ -121,18 +121,18 @@ A completed project has:
 
 Mark the project complete only when each item below can be demonstrated.
 
-- [ ] Data files are present locally and their source is documented.
-- [ ] A data validation report is generated.
-- [ ] The joined dataset has one row per `TransactionID`; duplicate handling is tested.
-- [ ] Train/validation separation is reproducible and prevents target leakage.
-- [ ] Baseline and improved models are compared on the same validation split.
-- [ ] Metrics include PR-AUC, precision, recall, F1, ROC-AUC, and confusion matrix.
-- [ ] The chosen operating threshold is documented.
-- [ ] Explanations are tested on sample predictions and described as model explanations, not proof of fraud.
-- [ ] API tests cover valid input, invalid input, and model loading failure.
-- [ ] Dashboard instructions work on a clean environment.
-- [ ] Monitoring checks and limitations are documented.
-- [ ] README commands reproduce the main results.
+- [x] Data files are present locally and their source is documented.
+- [x] A data validation report is generated (`report/data_quality_report.md`, `report/data_inventory_report.md`).
+- [x] The joined dataset has one row per `TransactionID`; duplicate handling is tested (`report/join_report.md`).
+- [x] Train/validation separation is reproducible and prevents target leakage (`docs/leakage_policy.md`, `report/leakage_review_report.md`).
+- [x] Baseline and improved models are compared on the same validation split (`report/model_comparison.md`).
+- [x] Metrics include PR-AUC, precision, recall, F1, ROC-AUC, and confusion matrix (`report/improved_metrics.md`).
+- [x] The chosen operating threshold is documented (`report/threshold_evaluation.md`, `report/decision_policy_report.md`).
+- [x] Explanations are tested on sample predictions and described as model explanations, not proof of fraud (`report/model_explainability.md`).
+- [x] API tests cover valid input, invalid input, and model loading failure (`tests/test_api.py`).
+- [x] Dashboard instructions work on a clean environment (`dashboard.py`, `src/bankguard/dashboard/app.py`).
+- [x] Monitoring checks and limitations are documented (`report/monitoring_summary.md`, `docs/containerization.md`).
+- [x] README commands reproduce the main results (`README.md`).
 
 ## 8. How to verify the project as a reviewer
 
